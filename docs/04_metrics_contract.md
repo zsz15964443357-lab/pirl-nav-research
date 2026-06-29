@@ -29,7 +29,7 @@ Episode 在时间限制内到达目标并且没有碰撞，则记为成功。
 
 ```text
 near_miss_count
-ear_miss_min_clearance
+near_miss_min_clearance
 near_miss_duration
 ```
 
