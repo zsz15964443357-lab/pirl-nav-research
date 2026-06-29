@@ -58,9 +58,21 @@ Codex CLI 单任务实现
 
 硬规则：**未通过场景可视化审查，不允许开始大规模训练。**
 
-## Codex CLI 工作流要求
+## Codex CLI skill 调用要求
 
-后续使用 Codex CLI 时，必须按 `academic-research-suite` 的学术研究流程执行。Codex 每次任务都要先读：
+后续使用 Codex CLI 时，必须在终端任务提示中显式调用 `academic-research-suite` skill。任务 prompt 第一行应写：
+
+```text
+Use the academic-research-suite skill.
+```
+
+如果 Codex CLI 环境支持显式参数，也应同时使用对应参数，例如：
+
+```bash
+codex --skill academic-research-suite
+```
+
+调用 skill 后，Codex 每次任务都要先读：
 
 ```text
 README.md
