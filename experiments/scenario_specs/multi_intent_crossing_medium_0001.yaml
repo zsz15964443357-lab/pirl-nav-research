@@ -1,0 +1,56 @@
+scenario_id: multi_intent_crossing_medium_0001
+family: multi_intent_crossing
+difficulty: medium
+seed: 3001
+map:
+  size: [24.0, 14.0]
+  static_obstacles: []
+ego:
+  start: [1.5, 7.0]
+  goal: [22.0, 7.0]
+  radius: 0.3
+  nominal_speed: 1.25
+objects:
+  - id: pedestrian_0
+    class: pedestrian
+    initial_state:
+      position: [9.5, 4.5]
+      velocity: [0.0, 0.15]
+    intent_candidates:
+      - name: continue_parallel
+        probability: 0.30
+        target: [13.0, 4.8]
+        conflicts_with_ego_nominal_path: false
+      - name: cross_left_to_right
+        probability: 0.45
+        trigger_time: [2.0, 3.5]
+        target: [11.5, 8.7]
+        conflicts_with_ego_nominal_path: true
+      - name: yield
+        probability: 0.25
+        trigger_time: [1.5, 2.8]
+        target: [9.5, 5.2]
+        conflicts_with_ego_nominal_path: false
+  - id: mobile_robot_0
+    class: mobile_robot
+    initial_state:
+      position: [13.0, 9.2]
+      velocity: [0.0, -0.1]
+    intent_candidates:
+      - name: stay
+        probability: 0.40
+        conflicts_with_ego_nominal_path: false
+      - name: cross_right_to_left
+        probability: 0.60
+        trigger_time: [2.7, 4.2]
+        target: [13.0, 5.2]
+        conflicts_with_ego_nominal_path: true
+risk:
+  min_clearance: 0.85
+  near_miss_distance: 1.05
+  exposure_horizon: 5.0
+  shield_trigger_distance: 0.6
+review:
+  status: candidate
+  reviewer: null
+  notes: null

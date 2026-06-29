@@ -2,7 +2,7 @@
 
 ## 目标
 
-建立 PIRL-Nav 六类核心场景的 YAML 规格模板和候选 manifest，不实现仿真环境，不生成训练数据，不训练模型。
+建立 PIRL-Nav 六类核心场景的 YAML 规格模板、候选 manifest 和最小 schema 校验，不实现仿真环境，不生成训练数据，不训练模型。
 
 本任务应把 latent motion intent uncertainty 具体化为可复现、可视化、可审查的场景输入。
 
@@ -21,7 +21,7 @@
 
 - `experiments/scenario_specs/*.yaml` 示例；
 - `experiments/manifests/candidate_*.yaml` 候选 manifest；
-- schema 校验脚本的最小占位或后续任务说明；
+- schema 校验脚本；
 - 场景字段说明文档；
 - 简单 YAML 完整性测试。
 
@@ -40,6 +40,7 @@
 - 每个 YAML 包含 family、difficulty、seed、ego、objects、intent candidates、risk、review；
 - candidate manifest 能列出所有示例场景；
 - 所有场景 review status 必须是 `candidate`；
+- `python scripts/validate_scenarios.py` 和 `python -m pytest` 必须通过；
 - 文档中说明哪些字段将在 Stage 2 可视化审查中使用。
 
 ## 审查门槛

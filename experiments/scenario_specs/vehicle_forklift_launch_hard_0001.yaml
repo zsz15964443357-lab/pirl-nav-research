@@ -1,0 +1,54 @@
+scenario_id: vehicle_forklift_launch_hard_0001
+family: vehicle_forklift_launch
+difficulty: hard
+seed: 5001
+map:
+  size: [26.0, 16.0]
+  static_obstacles:
+    - id: pallet_stack_0
+      shape: box
+      center: [8.0, 4.0]
+      size: [2.0, 1.2]
+    - id: pallet_stack_1
+      shape: box
+      center: [17.0, 12.0]
+      size: [2.5, 1.4]
+ego:
+  start: [2.0, 8.0]
+  goal: [24.0, 8.0]
+  radius: 0.3
+  nominal_speed: 1.4
+objects:
+  - id: forklift_0
+    class: forklift
+    initial_state:
+      position: [14.0, 5.2]
+      velocity: [0.0, 0.0]
+      heading_deg: 90
+    intent_candidates:
+      - name: remain_parked
+        probability: 0.30
+        conflicts_with_ego_nominal_path: false
+      - name: launch_forward
+        probability: 0.50
+        trigger_time: [1.0, 2.2]
+        target: [14.0, 11.3]
+        max_acceleration: 0.9
+        stopping_distance: 1.4
+        conflicts_with_ego_nominal_path: true
+      - name: turn_into_corridor
+        probability: 0.20
+        trigger_time: [1.5, 2.8]
+        target: [18.0, 8.0]
+        max_acceleration: 0.7
+        turn_radius: 1.6
+        conflicts_with_ego_nominal_path: true
+risk:
+  min_clearance: 1.1
+  near_miss_distance: 1.4
+  exposure_horizon: 5.0
+  shield_trigger_distance: 0.8
+review:
+  status: candidate
+  reviewer: null
+  notes: null

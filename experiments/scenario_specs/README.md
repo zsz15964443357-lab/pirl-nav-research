@@ -4,13 +4,13 @@
 
 场景设计应与 `docs/05_scenario_benchmark.md` 保持一致。
 
-## 推荐 schema
+## 当前 schema
 
 ```yaml
 scenario_id: latent_start_easy_0001
 family: latent_start
 difficulty: easy
-seed: 1
+seed: 1001
 map:
   size: [20.0, 12.0]
   static_obstacles: []
@@ -28,13 +28,17 @@ objects:
     intent_candidates:
       - name: stay
         probability: 0.4
+        conflicts_with_ego_nominal_path: false
       - name: cross
         probability: 0.6
         trigger_time: [2.0, 4.0]
         target: [10.0, 8.0]
+        conflicts_with_ego_nominal_path: true
 risk:
   min_clearance: 0.8
   near_miss_distance: 1.0
+  exposure_horizon: 4.0
+  shield_trigger_distance: 0.55
 review:
   status: candidate
   reviewer: null
@@ -50,7 +54,15 @@ review:
 - `vehicle_forklift_launch`：高惯性对象从静止启动；
 - `crowd_robot_flow`：多移动体流向局部变化。
 
-## 进入 manifest 前必须满足
+## 校验入口
+
+```bash
+python scripts/validate_scenarios.py
+```
+
+校验器只检查仓库契约：字段完整性、六类核心 family 覆盖、候选意图概率和为 1、至少一个候选意图与无人机名义路径冲突、review status 可追溯。它不替代 Stage 2 可视化审查。
+
+## 进入 reviewed / fixed manifest 前必须满足
 
 - YAML 字段完整；
 - seed 可复现；

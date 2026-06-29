@@ -15,15 +15,17 @@
 - `ruff check .` 可作为基础静态检查入口；
 - README、ROADMAP、仓库结构文档和 Codex 任务说明一致。
 
-## Stage 1：场景规格与生成器
+## Stage 1：场景规格与候选 manifest
 
-**目标**：基于 YAML 场景规格实现候选 seed 生成。  
-**核心产物**：scenario family schema、difficulty 定义、seed 复现协议、候选 manifest。
+**目标**：基于 YAML 场景规格固化候选 seed，不实现仿真或 rollout。
+**核心产物**：scenario family schema、difficulty 定义、seed 复现协议、候选 manifest、schema 校验脚本。
 
 验收门槛：
 
+- 六类核心 family 至少各有一个 candidate YAML；
 - 同一 family / difficulty / seed 必须可复现；
 - 每个场景必须记录对象初始状态、潜在意图集合、触发条件、遮挡体、终点和安全距离；
+- `python scripts/validate_scenarios.py` 必须通过；
 - 未进入固定测试集前，场景不得被用于报告最终效果。
 
 ## Stage 2：场景可视化流水线

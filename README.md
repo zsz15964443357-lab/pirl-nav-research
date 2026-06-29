@@ -79,12 +79,13 @@ tests/                            最小可运行性和后续单元测试
 
 ## 首次本地检查
 
-当前阶段只要求仓库结构和 Python 包骨架可检查，不要求实现仿真或 RL：
+当前阶段只要求仓库结构、Python 包骨架和 Stage 1 场景规格可检查，不要求实现仿真或 RL：
 
 ```bash
 python -m pip install -e ".[dev]"
 python -m pytest
 python -m ruff check .
+python scripts/validate_scenarios.py
 ```
 
 ## Codex CLI 首次读取文件
