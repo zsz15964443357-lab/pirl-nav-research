@@ -1,36 +1,64 @@
 # Python
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
 .venv/
 venv/
+env/
 .env
-
-# Build
+*.egg-info/
 build/
 dist/
-*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
 
-# Runtime outputs
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Experiment outputs
 logs/
 runs/
 outputs/
 artifacts/
+checkpoints/
+models/
 wandb/
+mlruns/
 tensorboard/
+*.pt
+*.pth
+*.ckpt
+*.onnx
 
-# Generated data and media
+# Generated data
 data/generated/
+data/interim/
+data/cache/
+
+# Robotics / simulation heavy artifacts
 *.bag
 *.db3
+*.mcap
+*.urdf.log
+log/
+install/
+
+# Generated media and large review artifacts
 *.mp4
+*.mov
+*.avi
 *.gif
-*.png
-*.jpg
+*.webm
 
-# Allow curated figures later
+# Curated paper/review figures may be committed under docs/figures/ after manual review.
 !docs/figures/.gitkeep
-
-# OS / IDE
-.DS_Store
-.vscode/
-.idea/
