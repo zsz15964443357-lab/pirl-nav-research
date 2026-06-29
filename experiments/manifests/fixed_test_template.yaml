@@ -1,0 +1,13 @@
+manifest_id: fixed_test_intent_risk_v0
+created_at: null
+commit: null
+purpose: fixed_test
+status: draft
+metrics_contract: docs/04_metrics_contract.md
+scenario_specs: []
+review_requirements:
+  visualization_review: required
+  no_initial_overlap: required
+  reachable_goal: required
+  reproducible_seed: required
+notes: "Do not freeze this manifest until all scenarios pass visual review."
