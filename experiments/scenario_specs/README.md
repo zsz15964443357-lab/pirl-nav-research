@@ -1,19 +1,59 @@
-# 场景规格说明
+# Scenario Specs
 
-本目录保存六类核心场景的配置规格。Codex CLI 实现场景生成器时，必须先读取 `docs/03_场景设计.md` 和本目录文件。
+本目录保存 PIRL-Nav 的场景 family 规格和 YAML 示例。场景规格的核心职责是稳定表达 latent motion intent uncertainty，而不是随机堆障碍。
 
-## 六类核心场景
+场景设计应与 `docs/05_scenario_benchmark.md` 保持一致。
 
-1. `static_clutter.yaml`：基础静态避障；
-2. `dynamic_crossing.yaml`：普通动态横穿；
-3. `sudden_start.yaml`：当前静止后突然启动；
-4. `occluded_emergence.yaml`：遮挡后突然出现；
-5. `intent_ambiguous.yaml`：多意图不确定；
-6. `semantic_distractor.yaml`：高风险语义但不进入路径。
+## 推荐 schema
 
-## 生成原则
+```yaml
+scenario_id: latent_start_easy_0001
+family: latent_start
+difficulty: easy
+seed: 1
+map:
+  size: [20.0, 12.0]
+  static_obstacles: []
+ego:
+  start: [1.0, 6.0]
+  goal: [18.0, 6.0]
+  radius: 0.3
+  nominal_speed: 1.0
+objects:
+  - id: pedestrian_0
+    class: pedestrian
+    initial_state:
+      position: [10.0, 4.0]
+      velocity: [0.0, 0.0]
+    intent_candidates:
+      - name: stay
+        probability: 0.4
+      - name: cross
+        probability: 0.6
+        trigger_time: [2.0, 4.0]
+        target: [10.0, 8.0]
+risk:
+  min_clearance: 0.8
+  near_miss_distance: 1.0
+review:
+  status: candidate
+  reviewer: null
+  notes: null
+```
 
-- 训练集可以随机生成；
-- 测试集必须固定 seed；
-- 所有固定测试 seed 必须通过可视化审查；
-- 每个场景都要有 easy / medium / hard 难度。
+## 场景 family
+
+- `latent_start`：静止对象未来可能启动；
+- `occlusion_emergence`：对象从遮挡后出现；
+- `multi_intent_crossing`：多个对象候选意图不确定；
+- `narrow_passage_yield`：狭窄通道中对象可能让行或抢占；
+- `vehicle_forklift_launch`：高惯性对象从静止启动；
+- `crowd_robot_flow`：多移动体流向局部变化。
+
+## 进入 manifest 前必须满足
+
+- YAML 字段完整；
+- seed 可复现；
+- 可视化审查通过；
+- 风险事件与 family 定义一致；
+- 不存在初始重叠、不可达目标或几何穿模。
