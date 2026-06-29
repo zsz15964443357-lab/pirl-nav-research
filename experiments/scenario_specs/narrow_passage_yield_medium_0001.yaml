@@ -1,0 +1,49 @@
+scenario_id: narrow_passage_yield_medium_0001
+family: narrow_passage_yield
+difficulty: medium
+seed: 4001
+map:
+  size: [18.0, 10.0]
+  static_obstacles:
+    - id: lower_barrier
+      shape: box
+      center: [9.0, 3.4]
+      size: [8.0, 0.5]
+    - id: upper_barrier
+      shape: box
+      center: [9.0, 6.6]
+      size: [8.0, 0.5]
+ego:
+  start: [1.0, 5.0]
+  goal: [17.0, 5.0]
+  radius: 0.3
+  nominal_speed: 1.0
+objects:
+  - id: mobile_robot_0
+    class: mobile_robot
+    initial_state:
+      position: [10.2, 5.0]
+      velocity: [0.0, 0.0]
+    intent_candidates:
+      - name: yield_to_side
+        probability: 0.45
+        trigger_time: [1.2, 2.2]
+        target: [10.2, 3.9]
+        conflicts_with_ego_nominal_path: false
+      - name: hold_center
+        probability: 0.30
+        conflicts_with_ego_nominal_path: true
+      - name: enter_passage
+        probability: 0.25
+        trigger_time: [1.5, 3.0]
+        target: [7.8, 5.0]
+        conflicts_with_ego_nominal_path: true
+risk:
+  min_clearance: 0.75
+  near_miss_distance: 0.95
+  exposure_horizon: 4.0
+  shield_trigger_distance: 0.5
+review:
+  status: candidate
+  reviewer: null
+  notes: null

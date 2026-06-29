@@ -4,13 +4,19 @@
 
 Stage 0 不创建训练脚本，也不创建一键跑大规模实验的入口。
 
+Stage 1 当前提供：
+
+```text
+scripts/validate_scenarios.py   # 检查六类核心场景 YAML 与 candidate manifest
+```
+
 ## 后续允许脚本类型
 
 ```text
 scripts/
   preview_scenarios.py       # Stage 2：生成场景可视化审查包
   summarize_metrics.py       # Stage 4：聚合固定测试集指标
-  validate_manifest.py       # Stage 1/2：检查 manifest 完整性
+  validate_scenarios.py      # Stage 1/2：检查 scenario specs 与 candidate manifest
 ```
 
 ## 禁止事项

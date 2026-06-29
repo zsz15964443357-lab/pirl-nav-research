@@ -1,0 +1,46 @@
+scenario_id: occlusion_emergence_medium_0001
+family: occlusion_emergence
+difficulty: medium
+seed: 2001
+map:
+  size: [22.0, 14.0]
+  static_obstacles:
+    - id: occluding_wall
+      shape: box
+      center: [10.0, 5.1]
+      size: [0.5, 3.8]
+    - id: crate_stack
+      shape: box
+      center: [12.0, 8.7]
+      size: [2.2, 0.5]
+ego:
+  start: [1.5, 7.0]
+  goal: [20.0, 7.0]
+  radius: 0.3
+  nominal_speed: 1.3
+objects:
+  - id: cart_0
+    class: cart
+    initial_state:
+      position: [10.6, 3.0]
+      velocity: [0.0, 0.0]
+      visible: false
+    intent_candidates:
+      - name: wait_behind_occluder
+        probability: 0.35
+        conflicts_with_ego_nominal_path: false
+      - name: emerge_cross
+        probability: 0.65
+        trigger_time: [2.2, 3.4]
+        target: [10.8, 9.4]
+        detection_delay: [0.1, 0.25]
+        conflicts_with_ego_nominal_path: true
+risk:
+  min_clearance: 0.9
+  near_miss_distance: 1.1
+  exposure_horizon: 4.5
+  shield_trigger_distance: 0.6
+review:
+  status: candidate
+  reviewer: null
+  notes: null

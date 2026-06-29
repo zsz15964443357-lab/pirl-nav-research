@@ -1,0 +1,43 @@
+manifest_id: candidate_stage1_2026_06_29
+created_at: 2026-06-29
+commit: null
+purpose: candidate
+status: draft
+metrics_contract: docs/04_metrics_contract.md
+scenario_specs:
+  - path: experiments/scenario_specs/latent_start_easy_0001.yaml
+    family: latent_start
+    difficulty: easy
+    seed: 1001
+    review_status: candidate
+  - path: experiments/scenario_specs/occlusion_emergence_medium_0001.yaml
+    family: occlusion_emergence
+    difficulty: medium
+    seed: 2001
+    review_status: candidate
+  - path: experiments/scenario_specs/multi_intent_crossing_medium_0001.yaml
+    family: multi_intent_crossing
+    difficulty: medium
+    seed: 3001
+    review_status: candidate
+  - path: experiments/scenario_specs/narrow_passage_yield_medium_0001.yaml
+    family: narrow_passage_yield
+    difficulty: medium
+    seed: 4001
+    review_status: candidate
+  - path: experiments/scenario_specs/vehicle_forklift_launch_hard_0001.yaml
+    family: vehicle_forklift_launch
+    difficulty: hard
+    seed: 5001
+    review_status: candidate
+  - path: experiments/scenario_specs/crowd_robot_flow_medium_0001.yaml
+    family: crowd_robot_flow
+    difficulty: medium
+    seed: 6001
+    review_status: candidate
+review_requirements:
+  visualization_review: required
+  no_initial_overlap: required
+  reachable_goal: required
+  reproducible_seed: required
+notes: "Candidate manifest only. Do not use as train/validation/fixed-test split."
