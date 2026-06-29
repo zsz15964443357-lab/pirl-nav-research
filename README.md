@@ -28,7 +28,7 @@ PIRL-Nav 研究的问题是：
 
 语义分割、检测、PyBullet、Gazebo、ROS2、PX4、可视化工具均是基础设施，不应写成论文主创新。
 
-## 平台策略
+## Platform 策略
 
 ```text
 辅助原型：自建轻量 2.5D Gymnasium 环境
@@ -57,6 +57,18 @@ Codex CLI 单任务实现
 ```
 
 硬规则：**未通过场景可视化审查，不允许开始大规模训练。**
+
+## Codex CLI 工作流要求
+
+后续使用 Codex CLI 时，必须按 `academic-research-suite` 的学术研究流程执行。Codex 每次任务都要先读：
+
+```text
+README.md
+ROADMAP.md
+docs/15_codex_cli_academic_research_suite.md
+```
+
+再读取对应阶段的 `codex_tasks/TASK_xx_*.md` 文件。Codex 只能完成当前 stage 的最小可审查产物，不能提前实现后续阶段。
 
 ## 仓库结构
 
@@ -90,10 +102,12 @@ python scripts/validate_scenarios.py
 
 ## Codex CLI 首次读取文件
 
-首次让 Codex CLI 只读取以下文件：
+第一次让 Codex CLI 只读取以下文件：
 
 ```text
 README.md
+ROADMAP.md
+docs/15_codex_cli_academic_research_suite.md
 docs/00_项目简述.md
 docs/01_架构决策.md
 docs/11_仓库结构.md
