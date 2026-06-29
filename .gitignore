@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Runtime outputs
+logs/
+runs/
+outputs/
+artifacts/
+wandb/
+tensorboard/
+
+# Generated data and media
+data/generated/
+*.bag
+*.db3
+*.mp4
+*.gif
+*.png
+*.jpg
+
+# Allow curated figures later
+!docs/figures/.gitkeep
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
