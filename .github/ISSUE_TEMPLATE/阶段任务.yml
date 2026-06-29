@@ -1,0 +1,18 @@
+name: 阶段任务
+about: 记录一个 PIRL-Nav 阶段任务
+title: "[阶段] "
+labels: [stage-task]
+body:
+  - type: input
+    id: task_doc
+    attributes:
+      label: 对应 task 文档
+      placeholder: codex_tasks/TASK_01_场景生成器.md
+  - type: textarea
+    id: expected_outputs
+    attributes:
+      label: 预期产物
+  - type: textarea
+    id: review_gate
+    attributes:
+      label: 审查门槛
