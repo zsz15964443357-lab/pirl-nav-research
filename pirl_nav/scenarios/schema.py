@@ -20,6 +20,14 @@ CORE_FAMILIES = {
     "crowd_robot_flow",
 }
 
+SUPPORTING_FAMILIES = {
+    "static_clutter",
+    "dynamic_crossing",
+    "semantic_distractor",
+}
+
+ALLOWED_FAMILIES = CORE_FAMILIES | SUPPORTING_FAMILIES
+
 DIFFICULTIES = {"easy", "medium", "hard"}
 REVIEW_STATUSES = {"candidate", "needs_revision", "approved", "rejected"}
 
@@ -39,8 +47,8 @@ def load_yaml_file(path: Path) -> dict[str, Any]:
 def validate_scenario_spec(spec: dict[str, Any], *, source: str = "<memory>") -> None:
     _require_string(spec, "scenario_id", source)
     family = _require_string(spec, "family", source)
-    if family not in CORE_FAMILIES:
-        raise ScenarioValidationError(f"{source}: unknown core family {family!r}")
+    if family not in ALLOWED_FAMILIES:
+        raise ScenarioValidationError(f"{source}: unknown scenario family {family!r}")
 
     difficulty = _require_string(spec, "difficulty", source)
     if difficulty not in DIFFICULTIES:
@@ -112,7 +120,7 @@ def validate_manifest(
     if purpose == "candidate" and missing:
         missing_text = ", ".join(sorted(missing))
         raise ScenarioValidationError(
-            f"{source}: candidate manifest missing families: {missing_text}"
+            f"{source}: candidate manifest missing core families: {missing_text}"
         )
 
 
