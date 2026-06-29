@@ -1,0 +1,25 @@
+name: 审查报告
+about: 记录网页端与 Codex CLI 审查结果
+title: "[审查] "
+labels: [review]
+body:
+  - type: input
+    id: stage
+    attributes:
+      label: 阶段
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 已审查证据
+  - type: dropdown
+    id: decision
+    attributes:
+      label: 结论
+      options:
+        - PASS
+        - FIX
+        - REJECT
+  - type: textarea
+    id: required_fixes
+    attributes:
+      label: 必须修正项
