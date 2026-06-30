@@ -68,6 +68,13 @@ def validate_manifest(
     if purpose not in {"candidate", "train", "validation", "fixed_test"}:
         raise ScenarioValidationError(f"{source}: invalid purpose {purpose!r}")
 
+    commit = manifest.get("commit")
+    if purpose in {"train", "validation", "fixed_test"}:
+        if not isinstance(commit, str) or not commit:
+            raise ScenarioValidationError(
+                f"{source}: {purpose} manifest must pin a non-empty commit"
+            )
+
     metrics_contract = _require_string(manifest, "metrics_contract", source)
     if not (repo_root / metrics_contract).is_file():
         raise ScenarioValidationError(

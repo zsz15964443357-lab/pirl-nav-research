@@ -1,6 +1,6 @@
 manifest_id: candidate_stage1_2026_06_29
 created_at: 2026-06-29
-commit: null
+commit: 16f31b715df91b3b867bb658ced1c631587b9688
 purpose: candidate
 status: draft
 metrics_contract: docs/04_metrics_contract.md

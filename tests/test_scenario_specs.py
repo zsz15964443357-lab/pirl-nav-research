@@ -34,4 +34,5 @@ def test_candidate_manifest_matches_scenario_specs() -> None:
         source=str(manifest_path.relative_to(REPO_ROOT)),
     )
     assert manifest["purpose"] == "candidate"
+    assert manifest["commit"]
     assert {entry["family"] for entry in manifest["scenario_specs"]} == CORE_FAMILIES
