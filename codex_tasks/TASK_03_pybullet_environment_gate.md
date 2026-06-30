@@ -10,6 +10,34 @@
 Use the academic-research-suite skill.
 ```
 
+## 仓库同步要求
+
+读取仓库文件或修改任何文件前，必须先拉取最新项目状态：
+
+```bash
+git status
+git fetch origin
+git checkout main
+git pull --ff-only origin main
+```
+
+如果在任务分支继续工作，必须先同步最新 `main`：
+
+```bash
+git checkout <task-branch>
+git merge --ff-only origin/main
+```
+
+如果不能 fast-forward，必须停止并报告冲突，不得覆盖、force-push 或重写历史。
+
+Codex 最终报告必须包含：
+
+```text
+Repository sync status:
+Base branch and commit:
+Working branch and commit:
+```
+
 必须先读：
 
 - `README.md`
@@ -97,6 +125,7 @@ docs/20_stage3_environment_audit_2026-06-30.md
 ## 最低验收标准
 
 - Codex 输出 open-source scan；
+- Codex 报告 repository sync status、base branch commit 和 working branch commit；
 - 环境能加载 `experiments/manifests/reviewed_stage2_2026-06-30.yaml`；
 - 环境能 reset 到至少 6 个 reviewed scenarios；
 - 每个场景可以执行随机动作 smoke rollout；
@@ -174,12 +203,18 @@ Codex 完成任务后必须写明：
 
 ```text
 Skill invoked: academic-research-suite
+Repository sync status:
+Base branch and commit:
+Working branch and commit:
 Stage: 3
 Task file: codex_tasks/TASK_03_pybullet_environment_gate.md
 Open-source references considered:
 Reuse/adaptation decision:
 License notes:
 Files changed:
+New files created and why:
+Existing files updated:
+Duplicate-file check:
 Validation commands:
 Review artifacts:
 Known limitations:
@@ -196,6 +231,12 @@ Use the academic-research-suite skill.
 You are working in the pirl-nav-research repository.
 Current stage: Stage 3 PyBullet / Gymnasium environment gate.
 Task file: codex_tasks/TASK_03_pybullet_environment_gate.md.
+
+Before reading repository files or editing anything, sync the latest repository state:
+- git status
+- git fetch origin
+- git checkout main
+- git pull --ff-only origin main
 
 First read:
 - README.md
@@ -226,11 +267,12 @@ Forbidden scope:
 - no ROS2/Gazebo/PX4
 - no policy performance claims
 - no large generated artifacts
+- no duplicate task or review files
 
 After editing files, run:
 - python scripts/validate_scenarios.py
 - python -m pytest
 - python -m ruff check .
 
-Final answer must include skill invoked, stage, task file, open-source references considered, reuse/adaptation decision, license notes, files changed, validation results, review artifacts, known limitations, forbidden scope checked, GitHub sync status, and next recommended stage.
+Final answer must include skill invoked, repository sync status, base branch and commit, working branch and commit, stage, task file, open-source references considered, reuse/adaptation decision, license notes, files changed, new files created and why, existing files updated, duplicate-file check, validation results, review artifacts, known limitations, forbidden scope checked, GitHub sync status, and next recommended stage.
 ```
