@@ -26,7 +26,7 @@ Skill invoked: academic-research-suite
 
 ```text
 1. 在 Codex CLI prompt 中显式调用 academic-research-suite skill。
-2. 让 Codex 读取 README、ROADMAP、本文件和当前 stage task。
+2. 先同步最新仓库，再让 Codex 读取 README、ROADMAP、本文件和当前 stage task。
 ```
 
 ## 每次任务的固定顺序
@@ -35,6 +35,7 @@ Codex CLI 必须按以下顺序工作：
 
 ```text
 skill invocation
+-> sync latest repository state
 -> read repository stage docs
 -> identify current stage
 -> open-source scan
@@ -48,6 +49,38 @@ skill invocation
 ```
 
 不得跳过当前 stage，也不得为了实现方便改变论文主线。
+
+## 仓库同步要求
+
+每次 Codex CLI 开始任务前，必须先拉取最新项目状态。不得基于旧本地副本、旧分支或旧聊天上下文继续修改。
+
+推荐命令：
+
+```bash
+git status
+git fetch origin
+git checkout main
+git pull --ff-only origin main
+```
+
+如果在任务分支上继续工作，必须先同步 `main` 后再更新任务分支：
+
+```bash
+git checkout <task-branch>
+git merge --ff-only origin/main
+```
+
+如果不能 fast-forward，Codex 必须停止并报告冲突，不得自行覆盖、force-push 或重写历史。
+
+修改文件前，Codex 必须在报告中写明：
+
+```text
+Repository sync status:
+Base branch and commit:
+Working branch and commit:
+```
+
+网页端审查也必须重新读取当前 `main` 或目标分支最新文件，不得只依赖上一轮对话记忆。
 
 ## 开源优先要求
 
@@ -115,7 +148,7 @@ Duplicate-file check:
 
 ## 每次执行前必须读
 
-无论任务属于哪个 stage，Codex 在调用 skill 后都必须先读：
+无论任务属于哪个 stage，Codex 在调用 skill 并同步最新仓库后，都必须先读：
 
 ```text
 README.md
@@ -137,6 +170,9 @@ codex_tasks/TASK_02_scenario_visualization_gate.md
 
 ```text
 Skill invoked:
+Repository sync status:
+Base branch and commit:
+Working branch and commit:
 Stage:
 Task file:
 Open-source references considered:
@@ -166,6 +202,8 @@ academic-research-suite
 Codex CLI 不得：
 
 - 未显式调用 `academic-research-suite` skill 就开始修改文件；
+- 未拉取最新仓库状态就开始读取、审查或修改文件；
+- fast-forward 失败后自行覆盖、force-push 或重写历史；
 - 跳过 open-source scan 就从零实现已有成熟工具；
 - 不记录来源和许可信息就引入外部代码；
 - 把外部通用工具包装成本项目论文创新；
@@ -187,6 +225,12 @@ Use the academic-research-suite skill.
 You are working in the pirl-nav-research repository.
 Current stage: Stage 2 scenario visualization gate.
 Task file: codex_tasks/TASK_02_scenario_visualization_gate.md.
+
+Before reading repository files or editing anything, sync the latest repository state:
+- git status
+- git fetch origin
+- git checkout main
+- git pull --ff-only origin main
 
 First read:
 - README.md
@@ -222,5 +266,5 @@ After editing files, run:
 - python -m pytest
 - python -m ruff check .
 
-Final answer must include skill invoked, stage, task file, open-source references considered, reuse/adaptation decision, license notes, files changed, new files created and why, existing files updated, duplicate-file check, validation results, review artifacts, known limitations, forbidden scope checked, GitHub sync status, and next recommended stage.
+Final answer must include skill invoked, repository sync status, base branch and commit, working branch and commit, stage, task file, open-source references considered, reuse/adaptation decision, license notes, files changed, new files created and why, existing files updated, duplicate-file check, validation results, review artifacts, known limitations, forbidden scope checked, GitHub sync status, and next recommended stage.
 ```
