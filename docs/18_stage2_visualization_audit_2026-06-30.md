@@ -24,7 +24,10 @@ The Stage 2 renderer reads `experiments/manifests/candidate_stage1_2026-06-29.ya
 - `index.html`
 - `reviewed_stage2_draft.yaml`
 
-The reviewed draft keeps every scenario at `candidate` with `review_decision: needs_human_review`. It never marks a scenario as approved.
+`reviewed_stage2_draft.yaml` is a review artifact draft only. It is not a formal
+reviewed manifest, train manifest, validation manifest, or fixed-test manifest.
+It keeps every scenario at `candidate` with `review_decision: needs_human_review`.
+It never marks a scenario as approved.
 
 ## Command
 
@@ -36,6 +39,25 @@ Default output:
 
 ```text
 experiments/review_artifacts/stage2/candidate_stage1_2026-06-29/
+```
+
+## Validation Results
+
+All Stage 2 checks passed locally on 2026-06-30:
+
+```text
+python3 scripts/validate_scenarios.py
+scenario validation passed
+
+python3 scripts/preview_scenarios.py
+generated 6 scenario review artifact sets in /home/zsz/pirl-nav-research/experiments/review_artifacts/stage2/candidate_stage1_2026-06-29
+
+python3 -m pytest
+....                                                                     [100%]
+4 passed in 0.14s
+
+python3 -m ruff check .
+All checks passed!
 ```
 
 ## Forbidden Scope Checked
