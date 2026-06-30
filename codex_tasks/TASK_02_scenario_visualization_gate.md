@@ -2,7 +2,7 @@
 
 ## Academic Research Suite 要求
 
-执行本任务时，Codex CLI 必须按 `academic-research-suite` 工作流运行。
+执行本任务时，Codex CLI 必须显式调用 `academic-research-suite` skill。
 
 必须先读：
 
@@ -12,6 +12,25 @@
 - `docs/05_scenario_benchmark.md`
 - `experiments/review_checklists/scenario_review.md`
 - `experiments/manifests/candidate_stage1_2026-06-29.yaml`
+
+## 开源优先要求
+
+本阶段不要闭门造车。Codex 在写可视化代码前，必须先做 open-source scan，优先参考成熟的可视化库、场景预览工具和机器人可视化范式。
+
+任务开始前必须输出：
+
+```text
+Open-source scan:
+- candidate projects or libraries
+- reusable parts
+- parts that must stay custom for PIRL-Nav
+- license / attribution notes
+- adaptation plan
+```
+
+Stage 2 可以优先考虑 Matplotlib、Plotly、Bokeh、OpenCV、ROS / RViz 场景可视化范式等方向，但最终实现必须保持轻量、可测试、可审查。
+
+如果复用或改造外部项目，必须在提交说明或审查摘要中记录来源、版本、许可信息和改动范围。
 
 ## 目标
 
@@ -48,10 +67,12 @@ tests/test_scenario_visualization.py
 - 不把任何场景标记为 `approved`；
 - 不把 reviewed draft 当作 fixed test manifest；
 - 不提交大型视频或未筛选图片；
-- 不改变 Stage 1 场景语义来适配画图脚本。
+- 不改变 Stage 1 场景语义来适配画图脚本；
+- 不跳过开源调研而从零写通用可视化工具。
 
 ## 最低验收标准
 
+- Codex 输出 open-source scan；
 - `python scripts/validate_scenarios.py` 通过；
 - 可视化脚本能读取 `candidate_stage1_2026-06-29.yaml`；
 - 每个 candidate 场景至少生成一个俯视图和一个意图时间线；
@@ -76,12 +97,17 @@ tests/test_scenario_visualization.py
 Codex 完成任务后必须写明：
 
 ```text
+Skill invoked: academic-research-suite
 Stage: 2
 Task file: codex_tasks/TASK_02_scenario_visualization_gate.md
+Open-source references considered:
+Reuse/adaptation decision:
+License notes:
 Files changed:
 Validation commands:
 Review artifacts:
 Known limitations:
 Forbidden scope checked:
+GitHub sync status:
 Next recommended stage:
 ```
