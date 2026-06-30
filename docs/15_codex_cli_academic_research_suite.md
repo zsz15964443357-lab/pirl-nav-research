@@ -42,6 +42,7 @@ skill invocation
 -> minimal current-stage implementation
 -> validation commands
 -> review artifacts
+-> update existing review docs/manifests
 -> GitHub sync
 -> next-stage recommendation
 ```
@@ -64,6 +65,53 @@ Open-source scan:
 ```
 
 可以复用、改造或重构已有开源实现，但必须记录来源、版本、许可信息和改动范围。通用基础设施优先参考成熟项目；PIRL-Nav 的创新应集中在 latent motion intent uncertainty、action-conditioned predictive risk、constrained RL 和 shield internalization。
+
+## 审查文件卫生规则
+
+网页端和 Codex CLI 端审查时，必须避免因为每次审查都新增一个独立文件而造成仓库膨胀和信息重复。
+
+优先规则：
+
+```text
+已有 task / audit / manifest / checklist 能表达的内容，直接更新原文件。
+只有当进入一个新的 stage 或产生一种新的长期资产时，才新增文件。
+```
+
+Codex CLI 不得随意新增以下重复文件：
+
+```text
+*_review_pass_*.md
+*_review_fix_*.md
+*_audit_v2_*.md
+*_final_*.md
+*_updated_*.md
+```
+
+如果审查结论发生变化，应优先修改：
+
+```text
+现有 stage audit 文档
+现有 reviewed manifest
+现有 codex task 文件
+PR 描述或 PR 模板检查项
+```
+
+例如 Stage 2 的人工审查通过结论应记录在：
+
+```text
+docs/18_stage2_visualization_audit_2026-06-30.md
+experiments/manifests/reviewed_stage2_2026-06-30.yaml
+```
+
+而不是再新增一个独立的 `stage2_review_pass` 文件。
+
+如果必须新增文件，Codex 必须在最终报告中说明：
+
+```text
+Why a new file is necessary:
+Why existing files cannot be updated instead:
+Duplicate-file check:
+```
 
 ## 每次执行前必须读
 
@@ -95,6 +143,9 @@ Open-source references considered:
 Reuse/adaptation decision:
 License notes:
 Files changed:
+New files created and why:
+Existing files updated:
+Duplicate-file check:
 Allowed scope:
 Forbidden scope checked:
 Validation commands:
@@ -118,6 +169,8 @@ Codex CLI 不得：
 - 跳过 open-source scan 就从零实现已有成熟工具；
 - 不记录来源和许可信息就引入外部代码；
 - 把外部通用工具包装成本项目论文创新；
+- 能更新原文件却新增重复审查文件；
+- 使用 `_v2`、`_final`、`_updated` 等方式逃避整理；
 - 只停留在本地临时代码而不同步到 GitHub；
 - 未经 stage task 要求就实现 PyBullet、Gymnasium、ROS2、RL 或训练脚本；
 - 未通过可视化审查就把 candidate 场景放进 fixed test；
@@ -144,6 +197,7 @@ First read:
 - experiments/review_checklists/scenario_review.md
 
 Before coding, perform an open-source scan for visualization approaches and reusable libraries.
+Before creating any new review document, check whether an existing task, audit, manifest, or checklist can be updated instead.
 
 Allowed scope:
 - scenario top-down preview images
@@ -161,11 +215,12 @@ Forbidden scope:
 - no ROS2
 - no policy rollout
 - no approved fixed test manifest
+- no duplicate review files
 
 After editing files, run:
 - python scripts/validate_scenarios.py
 - python -m pytest
 - python -m ruff check .
 
-Final answer must include skill invoked, stage, task file, open-source references considered, reuse/adaptation decision, license notes, files changed, validation results, review artifacts, known limitations, forbidden scope checked, GitHub sync status, and next recommended stage.
+Final answer must include skill invoked, stage, task file, open-source references considered, reuse/adaptation decision, license notes, files changed, new files created and why, existing files updated, duplicate-file check, validation results, review artifacts, known limitations, forbidden scope checked, GitHub sync status, and next recommended stage.
 ```
