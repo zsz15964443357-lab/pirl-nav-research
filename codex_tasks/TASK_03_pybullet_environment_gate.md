@@ -79,7 +79,7 @@ pirl_nav/sim/
   dynamics.py
 scripts/rollout_random_policy.py
 tests/test_pybullet_environment_gate.py
-docs/19_stage3_environment_audit_2026-06-30.md
+docs/20_stage3_environment_audit_2026-06-30.md
 ```
 
 ## 禁止事项
