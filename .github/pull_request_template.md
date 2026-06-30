@@ -9,9 +9,23 @@
 ## Codex CLI / Skill 检查
 
 - [ ] 若由 Codex CLI 生成，prompt 中显式调用了 `academic-research-suite` skill
+- [ ] Codex 在读取或修改文件前先同步了最新仓库状态
 - [ ] Codex 先读取了 `README.md`、`ROADMAP.md`、`docs/15_codex_cli_academic_research_suite.md` 和对应 task 文件
 - [ ] 本 PR 只完成当前 stage 的最小可审查产物
 - [ ] 没有提前实现后续 stage 的功能
+
+## 仓库同步检查
+
+- [ ] 已执行 `git fetch origin`
+- [ ] 已基于最新 `main` 或目标 base branch 开始任务
+- [ ] 如果使用任务分支，任务分支已同步最新 base branch
+- [ ] 没有在 fast-forward 失败后覆盖、force-push 或重写历史
+
+```text
+Repository sync status:
+Base branch and commit:
+Working branch and commit:
+```
 
 ## 开源调研与复用检查
 
