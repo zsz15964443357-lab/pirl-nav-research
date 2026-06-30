@@ -1,0 +1,32 @@
+{
+  "scenario_id": "crowd_robot_flow_medium_0001",
+  "family": "crowd_robot_flow",
+  "difficulty": "medium",
+  "seed": 6001,
+  "review_status": "candidate",
+  "object_count": 3,
+  "conflicting_intent_count": 3,
+  "conflicting_intents": [
+    {
+      "object_id": "pedestrian_0",
+      "intent": "cut_across_flow"
+    },
+    {
+      "object_id": "mobile_robot_0",
+      "intent": "local_goal_switch"
+    },
+    {
+      "object_id": "pedestrian_1",
+      "intent": "restart_cross"
+    }
+  ],
+  "risk": {
+    "min_clearance": 0.85,
+    "near_miss_distance": 1.05,
+    "exposure_horizon": 5.5,
+    "shield_trigger_distance": 0.6
+  },
+  "human_review_required": true,
+  "auto_approval": false,
+  "recommended_review_decision": "needs_human_review"
+}

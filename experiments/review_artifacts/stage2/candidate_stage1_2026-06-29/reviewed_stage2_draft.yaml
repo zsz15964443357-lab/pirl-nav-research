@@ -1,0 +1,42 @@
+manifest_id: reviewed_stage2_draft
+created_from: candidate_stage1_2026_06_29
+purpose: reviewed_draft
+status: draft
+notes: Human review required. This draft does not approve any scenario.
+scenario_specs:
+- path: experiments/scenario_specs/latent_start_easy_0001.yaml
+  family: latent_start
+  difficulty: easy
+  seed: 1001
+  review_status: candidate
+  review_decision: needs_human_review
+- path: experiments/scenario_specs/occlusion_emergence_medium_0001.yaml
+  family: occlusion_emergence
+  difficulty: medium
+  seed: 2001
+  review_status: candidate
+  review_decision: needs_human_review
+- path: experiments/scenario_specs/multi_intent_crossing_medium_0001.yaml
+  family: multi_intent_crossing
+  difficulty: medium
+  seed: 3001
+  review_status: candidate
+  review_decision: needs_human_review
+- path: experiments/scenario_specs/narrow_passage_yield_medium_0001.yaml
+  family: narrow_passage_yield
+  difficulty: medium
+  seed: 4001
+  review_status: candidate
+  review_decision: needs_human_review
+- path: experiments/scenario_specs/vehicle_forklift_launch_hard_0001.yaml
+  family: vehicle_forklift_launch
+  difficulty: hard
+  seed: 5001
+  review_status: candidate
+  review_decision: needs_human_review
+- path: experiments/scenario_specs/crowd_robot_flow_medium_0001.yaml
+  family: crowd_robot_flow
+  difficulty: medium
+  seed: 6001
+  review_status: candidate
+  review_decision: needs_human_review

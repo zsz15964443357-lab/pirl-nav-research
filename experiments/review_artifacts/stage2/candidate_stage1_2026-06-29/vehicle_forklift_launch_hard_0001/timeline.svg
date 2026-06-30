@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="254"
+viewBox="0 0 920 254">
+<defs>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+    <path d="M0,0 L0,6 L7,3 z" fill="context-stroke"/>
+  </marker>
+</defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="20" y="28" font-size="18" font-weight="700">Intent timeline: vehicle_forklift_launch_hard_0001</text>
+<line x1="250" y1="54" x2="860" y2="54" stroke="#111" stroke-width="2"/>
+<line x1="250.0" y1="48" x2="250.0" y2="60" stroke="#111"/>
+<text x="250.0" y="38" text-anchor="middle" font-size="11">0s</text>
+<line x1="351.7" y1="48" x2="351.7" y2="60" stroke="#111"/>
+<text x="351.7" y="38" text-anchor="middle" font-size="11">1s</text>
+<line x1="453.3" y1="48" x2="453.3" y2="60" stroke="#111"/>
+<text x="453.3" y="38" text-anchor="middle" font-size="11">2s</text>
+<line x1="555.0" y1="48" x2="555.0" y2="60" stroke="#111"/>
+<text x="555.0" y="38" text-anchor="middle" font-size="11">3s</text>
+<line x1="656.7" y1="48" x2="656.7" y2="60" stroke="#111"/>
+<text x="656.7" y="38" text-anchor="middle" font-size="11">4s</text>
+<line x1="758.3" y1="48" x2="758.3" y2="60" stroke="#111"/>
+<text x="758.3" y="38" text-anchor="middle" font-size="11">5s</text>
+<line x1="860.0" y1="48" x2="860.0" y2="60" stroke="#111"/>
+<text x="860.0" y="38" text-anchor="middle" font-size="11">6s</text>
+<text x="20" y="94" font-size="12" fill="#111">forklift_0 / remain_parked p=0.3</text>
+<line x1="250" y1="90" x2="860" y2="90" stroke="#e5e7eb" stroke-width="8"/>
+<circle cx="250.0" cy="90" r="5" fill="#f97316"><title>active from reset or no trigger window</title></circle>
+<text x="20" y="130" font-size="12" fill="#111">forklift_0 / launch_forward p=0.5</text>
+<line x1="250" y1="126" x2="860" y2="126" stroke="#e5e7eb" stroke-width="8"/>
+<rect x="351.7" y="119" width="122.0" height="14" fill="#dc2626" opacity="0.55"><title>trigger window</title></rect>
+<text x="872" y="130" font-size="12" fill="#dc2626">conflict</text>
+<text x="20" y="166" font-size="12" fill="#111">forklift_0 / turn_into_corridor p=0.2</text>
+<line x1="250" y1="162" x2="860" y2="162" stroke="#e5e7eb" stroke-width="8"/>
+<rect x="402.5" y="155" width="132.2" height="14" fill="#dc2626" opacity="0.55"><title>trigger window</title></rect>
+<text x="872" y="166" font-size="12" fill="#dc2626">conflict</text>
+</svg>

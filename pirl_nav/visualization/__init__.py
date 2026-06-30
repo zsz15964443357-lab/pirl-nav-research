@@ -1,5 +1,8 @@
-"""Visualization and review artifact boundary.
+"""Visualization and review artifact helpers."""
 
-Scenario previews, rollout plots, and risk visualizations should be introduced
-before large-scale training so scenario quality can be reviewed manually.
-"""
+from pirl_nav.visualization.scenario_preview import (
+    ReviewArtifact,
+    render_review_artifacts,
+)
+
+__all__ = ["ReviewArtifact", "render_review_artifacts"]

@@ -1,0 +1,24 @@
+{
+  "scenario_id": "latent_start_easy_0001",
+  "family": "latent_start",
+  "difficulty": "easy",
+  "seed": 1001,
+  "review_status": "candidate",
+  "object_count": 1,
+  "conflicting_intent_count": 1,
+  "conflicting_intents": [
+    {
+      "object_id": "pedestrian_0",
+      "intent": "cross"
+    }
+  ],
+  "risk": {
+    "min_clearance": 0.8,
+    "near_miss_distance": 1.0,
+    "exposure_horizon": 4.0,
+    "shield_trigger_distance": 0.55
+  },
+  "human_review_required": true,
+  "auto_approval": false,
+  "recommended_review_decision": "needs_human_review"
+}
