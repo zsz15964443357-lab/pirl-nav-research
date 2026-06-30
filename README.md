@@ -182,7 +182,7 @@ experiments/manifests/candidate_stage1_2026-06-29.yaml
 scripts/validate_scenarios.py
 ```
 
-旧的生成器任务不是当前 Stage 1 的执行入口；在场景规格和可视化审查门控稳定前，不应实现批量场景生成器。
+Stage 1 的正式任务入口只有 `codex_tasks/TASK_01_scenario_specification.md`。
 
 ## 禁止事项
 
