@@ -58,6 +58,36 @@ Codex CLI 单任务实现
 
 硬规则：**未通过场景可视化审查，不允许开始大规模训练。**
 
+## 开始任务前同步最新仓库
+
+每次使用 Codex CLI 开始任务前，必须先拉取最新项目状态，不能基于旧本地副本、旧分支或旧聊天上下文继续修改。
+
+推荐顺序：
+
+```bash
+git status
+git fetch origin
+git checkout main
+git pull --ff-only origin main
+```
+
+如果在任务分支上继续工作，必须先同步 `main` 后再更新任务分支，例如：
+
+```bash
+git checkout <task-branch>
+git merge --ff-only origin/main
+```
+
+如果不能 fast-forward，Codex 必须停止并报告冲突，不得自行覆盖或重写历史。最终报告必须写明：
+
+```text
+Repository sync status:
+Base branch and commit:
+Working branch and commit:
+```
+
+网页端审查也必须基于当前 `main` 或目标分支的最新文件重新读取，不能只依赖上一轮对话记忆。
+
 ## 开源优先原则
 
 本项目不要闭门造车，也不要默认从零开始。每个实现阶段在写代码前，都应先调研相关开源项目、论文代码、标准库和成熟工具链。
@@ -113,7 +143,7 @@ Use the academic-research-suite skill.
 codex --skill academic-research-suite
 ```
 
-调用 skill 后，Codex 每次任务都要先读：
+调用 skill 后，Codex 每次任务都要先同步最新仓库，再读：
 
 ```text
 README.md
@@ -194,3 +224,4 @@ Stage 1 的正式任务入口只有 `codex_tasks/TASK_01_scenario_specification.
 6. 不要提交大规模训练日志、wandb / tensorboard 目录、rosbag、大视频或未筛选图片。
 7. 不要跳过开源调研而从零实现已有成熟工具。
 8. 不要为了记录审查结论而重复新建相似文档；优先修改原文档并记录变更。
+9. 不要在未拉取最新项目状态前开始 Codex CLI 修改或网页端审查。
