@@ -21,6 +21,21 @@
 - [ ] 说明了哪些部分复用 / 改造，哪些部分保持 PIRL-Nav 自定义
 - [ ] 没有把外部通用工具包装成本项目论文创新
 
+## 文件卫生与重复文件检查
+
+- [ ] 审查后优先修改原 task / audit / manifest / checklist，而不是新增重复文件
+- [ ] 没有新增 `_v2`、`_final`、`_updated`、`review_pass`、`review_fix` 等重复记录文件
+- [ ] 如果新增了文件，下面说明为什么不能更新已有文件
+- [ ] 删除或合并了本 PR 产生的临时、重复或过时文档
+
+新增文件必要性说明：
+
+```text
+New files created and why:
+Existing files updated instead of duplicated:
+Duplicate-file check:
+```
+
 ## 变更类型
 
 - [ ] 文档 / 研究决策
