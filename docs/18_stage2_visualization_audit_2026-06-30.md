@@ -24,10 +24,7 @@ The Stage 2 renderer reads `experiments/manifests/candidate_stage1_2026-06-29.ya
 - `index.html`
 - `reviewed_stage2_draft.yaml`
 
-`reviewed_stage2_draft.yaml` is a review artifact draft only. It is not a formal
-reviewed manifest, train manifest, validation manifest, or fixed-test manifest.
-It keeps every scenario at `candidate` with `review_decision: needs_human_review`.
-It never marks a scenario as approved.
+`reviewed_stage2_draft.yaml` is a review artifact draft only. It is not a formal reviewed manifest, train manifest, validation manifest, or fixed-test manifest. It keeps every scenario at `candidate` with `review_decision: needs_human_review`. It never marks a scenario as approved.
 
 ## Command
 
@@ -60,6 +57,35 @@ python3 -m ruff check .
 All checks passed!
 ```
 
+## Human Review Decision
+
+Stage 2 visualization artifacts passed initial human review on 2026-06-30.
+
+Decision:
+
+```text
+approved_for_stage3
+```
+
+This means the six candidate scenarios are acceptable for Stage 3 environment integration experiments. It does not mean they are approved for training results, validation results, fixed-test scenarios, or final paper benchmark examples.
+
+The reviewed manifest is:
+
+```text
+experiments/manifests/reviewed_stage2_2026-06-30.yaml
+```
+
+This manifest should be used only as the Stage 3 environment integration input.
+
+Scenarios approved for Stage 3:
+
+- `latent_start_easy_0001`
+- `occlusion_emergence_medium_0001`
+- `multi_intent_crossing_medium_0001`
+- `narrow_passage_yield_medium_0001`
+- `vehicle_forklift_launch_hard_0001`
+- `crowd_robot_flow_medium_0001`
+
 ## Forbidden Scope Checked
 
 - No PyBullet or Gymnasium environment.
@@ -73,4 +99,9 @@ All checks passed!
 
 - The renderer uses straight-line intent previews from initial object positions to candidate targets; it does not simulate dynamics.
 - Risk visualization is currently represented through nominal corridor and conflict-flagged intent arrows, not a dense risk field.
-- Human review is still required before any reviewed or fixed manifest can be created.
+- Stage 2 artifacts validate scene readability and latent intent structure, not policy performance.
+- Stage 3 must still validate physical dynamics, collision geometry, reachability, reproducibility, and metric-ready `info` fields.
+
+## Review File Hygiene
+
+This audit now contains both the implementation review and the human review decision. Do not create a separate Stage 2 pass/fail document for the same review state. Future corrections should update this file and the relevant manifest directly, then record the change in the PR description.
