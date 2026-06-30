@@ -51,7 +51,7 @@ Codex CLI 单任务实现
   ↓
 网页端 / 人工审查
   ↓
-修正
+修正原文档或原 manifest
   ↓
 进入下一阶段
 ```
@@ -76,6 +76,28 @@ Open-source scan:
 可以参考、复用或改造已有开源项目，但必须记录来源、版本、许可信息和改动范围。通用基础设施优先参考成熟项目；PIRL-Nav 的创新应集中在 latent motion intent uncertainty、action-conditioned predictive risk、constrained RL 和 shield internalization。
 
 改造后的代码、文档和审查产物必须同步到 GitHub，不能只停留在本地临时代码。
+
+## 文件卫生原则
+
+网页端和 Codex CLI 端审查后，优先直接修改原 task、原 audit、原 manifest 或原 checklist，并在原文件中记录审查结论。不要为了每次审查都新增一个相似文件。
+
+禁止用以下方式制造重复文件：
+
+```text
+*_review_pass_*.md
+*_review_fix_*.md
+*_audit_v2_*.md
+*_final_*.md
+*_updated_*.md
+```
+
+如果必须新增文件，必须说明为什么不能修改已有文件。Codex CLI 的最终报告必须包含：
+
+```text
+New files created and why:
+Existing files updated:
+Duplicate-file check:
+```
 
 ## Codex CLI skill 调用要求
 
@@ -171,3 +193,4 @@ scripts/validate_scenarios.py
 5. 不要隐藏 shield dependence，必须报告 policy-only 与 policy+shield。
 6. 不要提交大规模训练日志、wandb / tensorboard 目录、rosbag、大视频或未筛选图片。
 7. 不要跳过开源调研而从零实现已有成熟工具。
+8. 不要为了记录审查结论而重复新建相似文档；优先修改原文档并记录变更。
