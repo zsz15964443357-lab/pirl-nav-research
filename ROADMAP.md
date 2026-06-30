@@ -2,6 +2,8 @@
 
 路线图采用 stage-gated workflow。每一阶段都必须留下可审查产物，不能只留下口头结论或一次性脚本。
 
+每个实现类阶段在写代码前都必须先做 open-source scan：调研可参考的开源项目、论文代码、标准库和成熟工具链，说明复用 / 改造 / 自定义的边界，并记录许可证与来源。通用基础设施优先复用成熟项目，PIRL-Nav 的创新集中在 latent motion intent uncertainty、action-conditioned predictive risk、constrained RL 和 shield internalization。
+
 ## Stage 0：仓库初始化
 
 **目标**：建立科研代码仓库的最小骨架和审查协议。  
@@ -35,6 +37,7 @@
 
 验收门槛：
 
+- 完成可视化相关开源项目 / 库调研，并记录复用或自定义决策；
 - 人工能看懂对象何时启动、横穿、遮挡出现或让行；
 - 风险触发逻辑与场景文字规格一致；
 - 未通过人工可视化审查的场景不得进入训练集、验证集或固定测试集。
@@ -46,6 +49,7 @@
 
 验收门槛：
 
+- 完成 PyBullet / Gymnasium / navigation benchmark 开源调研，并记录复用或自定义决策；
 - 随机动作和脚本策略 rollout 可视化正常；
 - 速度、加速度、yaw-rate、clearance、碰撞、控制延迟可检查；
 - 观测噪声、延迟、dropout 有显式配置；
@@ -58,6 +62,7 @@
 
 验收门槛：
 
+- 完成安全指标、轨迹指标和统计聚合工具调研；
 - 每个指标都有定义、单位、边界条件和失败案例；
 - 至少覆盖 policy-only 与 policy+shield 两种运行模式；
 - 指标不依赖视觉展示才能解释。
@@ -69,6 +74,7 @@
 
 验收门槛：
 
+- 完成 Stable-Baselines3、CleanRL、safe RL / constrained RL 开源调研；
 - baseline 共享同一环境、同一测试 manifest、同一统计口径；
 - 不允许为某个方法单独调换测试场景；
 - 不允许只报告总成功率，必须报告 near miss、risk exposure、AT、SDI、jerk、detour。
@@ -80,6 +86,7 @@
 
 验收门槛：
 
+- 完成 intent prediction、trajectory forecasting、risk-aware RL、shielded RL 相关开源和论文代码调研；
 - 相对 baseline 在 near miss、risk exposure、AT、SDI 上有一致优势；
 - success rate 不明显下降；
 - detour 和 jerk 不显著恶化；
@@ -92,6 +99,7 @@
 
 验收门槛：
 
+- 完成 ROS2、Gazebo、PX4 SITL、ONNX Runtime deployment 示例调研；
 - 报告 mean / p95 / p99 / max latency；
 - 报告 deadline miss；
 - 报告 safety supervisor 介入次数和介入幅度；
