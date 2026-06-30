@@ -6,6 +6,21 @@
 - 阶段门控：
 - 本 PR 是否进入下一阶段：是 / 否
 
+## Codex CLI / Skill 检查
+
+- [ ] 若由 Codex CLI 生成，prompt 中显式调用了 `academic-research-suite` skill
+- [ ] Codex 先读取了 `README.md`、`ROADMAP.md`、`docs/15_codex_cli_academic_research_suite.md` 和对应 task 文件
+- [ ] 本 PR 只完成当前 stage 的最小可审查产物
+- [ ] 没有提前实现后续 stage 的功能
+
+## 开源调研与复用检查
+
+- [ ] 实现前做了 open-source scan
+- [ ] 记录了参考项目 / 库 / 论文代码
+- [ ] 记录了来源 URL、版本或 commit、许可证和改动范围
+- [ ] 说明了哪些部分复用 / 改造，哪些部分保持 PIRL-Nav 自定义
+- [ ] 没有把外部通用工具包装成本项目论文创新
+
 ## 变更类型
 
 - [ ] 文档 / 研究决策
@@ -37,12 +52,18 @@
 
 ## 自动检查
 
+- [ ] `python scripts/validate_scenarios.py`
 - [ ] `python -m pytest`
 - [ ] `python -m ruff check .`
 
 ## 可视化或审查证据
 
 请附上必要的场景图、rollout 图、指标表或失败案例说明。大型媒体文件不要直接提交到 Git。
+
+## GitHub 同步状态
+
+- [ ] 所有代码、文档、配置和审查产物已同步到 GitHub
+- [ ] 没有只存在于本地的关键实现或结果
 
 ## 已知限制
 
