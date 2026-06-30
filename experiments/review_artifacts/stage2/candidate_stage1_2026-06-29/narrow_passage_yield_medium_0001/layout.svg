@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620"
+viewBox="0 0 900 620">
+<defs>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+    <path d="M0,0 L0,6 L7,3 z" fill="context-stroke"/>
+  </marker>
+</defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="20" y="28" font-size="18" font-weight="700">Layout: narrow_passage_yield_medium_0001</text>
+<rect x="70" y="70" width="760" height="480" fill="#fbfbfb" stroke="#222" stroke-width="2"/>
+<rect x="281.1" y="374.8" width="337.8" height="24.0" fill="#9ca3af" opacity="0.85"><title>lower_barrier</title></rect>
+<rect x="281.1" y="221.2" width="337.8" height="24.0" fill="#9ca3af" opacity="0.85"><title>upper_barrier</title></rect>
+<line x1="112.2" y1="310.0" x2="787.8" y2="310.0" stroke="#2563eb" stroke-width="3" stroke-dasharray="8 8"/>
+<line x1="112.2" y1="310.0" x2="787.8" y2="310.0" stroke="#93c5fd" stroke-width="45.6" stroke-opacity="0.22"/>
+<circle cx="112.2" cy="310.0" r="8" fill="#2563eb" stroke="white" stroke-width="1.5"><title>UAV start</title></circle>
+<polygon points="787.8,299.0 790.8,307.0 798.8,307.0 792.8,312.0 794.8,320.0 787.8,315.0 780.8,320.0 782.8,312.0 776.8,307.0 784.8,307.0" fill="#16a34a"><title>Goal</title></polygon>
+<circle cx="500.7" cy="310.0" r="7" fill="#dc2626" stroke="white" stroke-width="1.5"><title>mobile_robot_0 (mobile_robot)</title></circle>
+<line x1="500.7" y1="310.0" x2="500.7" y2="362.8" stroke="#f97316" stroke-width="2" marker-end="url(#arrow)"/>
+<circle cx="500.7" cy="362.8" r="4" fill="#f97316" stroke="white" stroke-width="1.5"><title>yield_to_side</title></circle>
+<line x1="500.7" y1="310.0" x2="399.3" y2="310.0" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow)"/>
+<circle cx="399.3" cy="310.0" r="4" fill="#dc2626" stroke="white" stroke-width="1.5"><title>enter_passage</title></circle>
+
+<g>
+  <rect x="655" y="470" width="220" height="122" fill="white" stroke="#d1d5db"/>
+  <text x="667" y="492" font-size="13" font-weight="700">Legend</text>
+  <circle cx="673" cy="512" r="6" fill="#2563eb"/>
+  <text x="687" y="516" font-size="12">UAV start</text>
+  <polygon points="673,527 677,536 667,531 679,531 669,536" fill="#16a34a"/>
+  <text x="687" y="535" font-size="12">Goal</text>
+  <rect x="667" y="546" width="13" height="10" fill="#9ca3af"/>
+  <text x="687" y="556" font-size="12">Static obstacle</text>
+  <circle cx="673" cy="573" r="6" fill="#dc2626"/>
+  <text x="687" y="577" font-size="12">Potential risk object</text>
+</g>
+</svg>

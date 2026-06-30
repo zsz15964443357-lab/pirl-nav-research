@@ -10,6 +10,12 @@ Stage 1 当前提供：
 scripts/validate_scenarios.py   # 检查六类核心场景 YAML 与 candidate manifest
 ```
 
+Stage 2 当前提供：
+
+```text
+scripts/preview_scenarios.py    # 生成 HTML/SVG/JSON 场景可视化审查包
+```
+
 ## 后续允许脚本类型
 
 ```text

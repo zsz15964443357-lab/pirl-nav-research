@@ -1,0 +1,28 @@
+{
+  "scenario_id": "multi_intent_crossing_medium_0001",
+  "family": "multi_intent_crossing",
+  "difficulty": "medium",
+  "seed": 3001,
+  "review_status": "candidate",
+  "object_count": 2,
+  "conflicting_intent_count": 2,
+  "conflicting_intents": [
+    {
+      "object_id": "pedestrian_0",
+      "intent": "cross_left_to_right"
+    },
+    {
+      "object_id": "mobile_robot_0",
+      "intent": "cross_right_to_left"
+    }
+  ],
+  "risk": {
+    "min_clearance": 0.85,
+    "near_miss_distance": 1.05,
+    "exposure_horizon": 5.0,
+    "shield_trigger_distance": 0.6
+  },
+  "human_review_required": true,
+  "auto_approval": false,
+  "recommended_review_decision": "needs_human_review"
+}

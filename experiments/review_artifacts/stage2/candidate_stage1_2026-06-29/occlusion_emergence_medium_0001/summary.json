@@ -1,0 +1,24 @@
+{
+  "scenario_id": "occlusion_emergence_medium_0001",
+  "family": "occlusion_emergence",
+  "difficulty": "medium",
+  "seed": 2001,
+  "review_status": "candidate",
+  "object_count": 1,
+  "conflicting_intent_count": 1,
+  "conflicting_intents": [
+    {
+      "object_id": "cart_0",
+      "intent": "emerge_cross"
+    }
+  ],
+  "risk": {
+    "min_clearance": 0.9,
+    "near_miss_distance": 1.1,
+    "exposure_horizon": 4.5,
+    "shield_trigger_distance": 0.6
+  },
+  "human_review_required": true,
+  "auto_approval": false,
+  "recommended_review_decision": "needs_human_review"
+}

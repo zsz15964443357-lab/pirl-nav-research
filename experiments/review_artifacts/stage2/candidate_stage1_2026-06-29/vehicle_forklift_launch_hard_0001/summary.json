@@ -1,0 +1,28 @@
+{
+  "scenario_id": "vehicle_forklift_launch_hard_0001",
+  "family": "vehicle_forklift_launch",
+  "difficulty": "hard",
+  "seed": 5001,
+  "review_status": "candidate",
+  "object_count": 1,
+  "conflicting_intent_count": 2,
+  "conflicting_intents": [
+    {
+      "object_id": "forklift_0",
+      "intent": "launch_forward"
+    },
+    {
+      "object_id": "forklift_0",
+      "intent": "turn_into_corridor"
+    }
+  ],
+  "risk": {
+    "min_clearance": 1.1,
+    "near_miss_distance": 1.4,
+    "exposure_horizon": 5.0,
+    "shield_trigger_distance": 0.8
+  },
+  "human_review_required": true,
+  "auto_approval": false,
+  "recommended_review_decision": "needs_human_review"
+}

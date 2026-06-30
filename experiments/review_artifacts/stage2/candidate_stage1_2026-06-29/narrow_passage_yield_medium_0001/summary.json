@@ -1,0 +1,28 @@
+{
+  "scenario_id": "narrow_passage_yield_medium_0001",
+  "family": "narrow_passage_yield",
+  "difficulty": "medium",
+  "seed": 4001,
+  "review_status": "candidate",
+  "object_count": 1,
+  "conflicting_intent_count": 2,
+  "conflicting_intents": [
+    {
+      "object_id": "mobile_robot_0",
+      "intent": "hold_center"
+    },
+    {
+      "object_id": "mobile_robot_0",
+      "intent": "enter_passage"
+    }
+  ],
+  "risk": {
+    "min_clearance": 0.75,
+    "near_miss_distance": 0.95,
+    "exposure_horizon": 4.0,
+    "shield_trigger_distance": 0.5
+  },
+  "human_review_required": true,
+  "auto_approval": false,
+  "recommended_review_decision": "needs_human_review"
+}
