@@ -1,82 +1,73 @@
 # 15 Codex CLI Academic Research Suite Skill Invocation
 
-本仓库后续使用 Codex CLI 执行任务时，必须在终端任务提示中**显式调用 `academic-research-suite` skill**。
+使用 Codex CLI 执行本仓库任务时，必须在终端提示中显式调用 `academic-research-suite` skill。
 
-这里的要求不是仅仅“参考一种研究流程”，而是要求你在 Codex CLI prompt 里明确写出：
+任务 prompt 第一行应写：
 
 ```text
 Use the academic-research-suite skill.
 ```
 
-如果当前 Codex CLI 环境支持显式 skill 参数，也应同时使用对应参数，例如：
+如果 Codex CLI 环境支持显式参数，也可以同时使用：
 
 ```bash
 codex --skill academic-research-suite
 ```
 
-如果你的 Codex CLI 版本不支持 `--skill` 参数，则必须在 prompt 第一行写明 `Use the academic-research-suite skill.`，并要求 Codex 在修改文件前确认它正在按该 skill 的流程工作。
-
-## Skill 调用与仓库文档的关系
-
-本文件只是仓库内的补充约束，不能替代终端里的 skill 调用。
-
-正确使用方式是两层同时启用：
+如果当前 Codex CLI 不支持 `--skill` 参数，仍必须在 prompt 第一行写明 `Use the academic-research-suite skill.`，并要求 Codex 在修改文件前确认：
 
 ```text
-第一层：在 Codex CLI 终端 prompt 中显式调用 academic-research-suite skill。
-第二层：让 Codex 读取本仓库的 README、ROADMAP、stage task 和本文件作为项目约束。
+Skill invoked: academic-research-suite
 ```
 
-如果 Codex CLI 没有真正加载 skill，本文件仍然可以作为 fallback 约束；但正式任务应优先以终端中的 skill 调用为准。
+## 两层约束
 
-## 总原则
-
-Codex CLI 每次任务必须遵循：
+本文件不能替代终端中的 skill 调用。正确方式是：
 
 ```text
-skill invocation -> research question -> stage task -> source documents -> minimal implementation -> mechanical checks -> review artifacts -> human/web review -> next stage
+1. 在 Codex CLI prompt 中显式调用 academic-research-suite skill。
+2. 让 Codex 读取 README、ROADMAP、本文件和当前 stage task。
 ```
 
-任何任务都不得跳过当前 stage，也不得因为实现方便而改变论文主线。
+## 每次任务的固定顺序
 
-## 必须遵守的角色分工
+Codex CLI 必须按以下顺序工作：
 
-`academic-research-suite` skill 在本仓库中应至少体现以下三类职责。
+```text
+skill invocation
+-> read repository stage docs
+-> identify current stage
+-> open-source scan
+-> choose reuse/adaptation strategy
+-> minimal current-stage implementation
+-> validation commands
+-> review artifacts
+-> GitHub sync
+-> next-stage recommendation
+```
 
-### 1. academic-pipeline
+不得跳过当前 stage，也不得为了实现方便改变论文主线。
 
-用于保持论文主线和阶段顺序。
+## 开源优先要求
 
-Codex 必须先判断当前任务属于哪个 stage，并只完成该 stage 的最小产物。不能把 Stage 2、Stage 3、Stage 4 的内容提前混在一起。
+本项目不要闭门造车，不要默认从零开始。每个实现类任务在写代码前，必须先调研可参考的开源项目、论文代码、标准库和成熟工具链。
 
-### 2. experiment-agent
+修改文件前，Codex 必须输出：
 
-用于保证实验可复现。
+```text
+Open-source scan:
+- candidate projects or libraries
+- reusable parts
+- parts that must stay custom for PIRL-Nav
+- license / attribution notes
+- adaptation plan
+```
 
-Codex 生成任何场景、配置、manifest、指标或脚本时，必须记录：
+可以复用、改造或重构已有开源实现，但必须记录来源、版本、许可信息和改动范围。通用基础设施优先参考成熟项目；PIRL-Nav 的创新应集中在 latent motion intent uncertainty、action-conditioned predictive risk、constrained RL 和 shield internalization。
 
-- seed；
-- config path；
-- manifest path；
-- expected output；
-- validation command；
-- known limitations。
+## 每次执行前必须读
 
-### 3. reviewer-style gate
-
-用于模拟论文审稿和网页端审查。
-
-Codex 完成任务后必须说明：
-
-- 产物是否支撑 PIRL-Nav 的 latent motion intent uncertainty 主线；
-- 是否产生了可人工审查的证据；
-- 是否有越界实现；
-- 当前结论不能支持什么；
-- 下一阶段仍然需要什么。
-
-## Codex CLI 每次执行前必须读
-
-无论任务属于哪个 stage，Codex 在调用 `academic-research-suite` skill 后，都必须先读：
+无论任务属于哪个 stage，Codex 在调用 skill 后都必须先读：
 
 ```text
 README.md
@@ -84,7 +75,7 @@ ROADMAP.md
 docs/15_codex_cli_academic_research_suite.md
 ```
 
-然后再读对应 stage 的 task 文件，例如：
+然后再读对应阶段的 task 文件，例如：
 
 ```text
 codex_tasks/TASK_02_scenario_visualization_gate.md
@@ -92,24 +83,28 @@ codex_tasks/TASK_02_scenario_visualization_gate.md
 
 如果 task 文件和 README / ROADMAP / 本文件冲突，以更保守、更严格的 stage gate 为准。
 
-## Codex CLI 输出格式要求
+## 输出报告格式
 
-每次 Codex 提交必须在 PR 或审查文档中包含：
+每次 Codex 提交必须在 PR、commit summary 或审查文档中包含：
 
 ```text
 Skill invoked:
 Stage:
 Task file:
+Open-source references considered:
+Reuse/adaptation decision:
+License notes:
 Files changed:
 Allowed scope:
 Forbidden scope checked:
 Validation commands:
 Review artifacts:
 Known limitations:
+GitHub sync status:
 Next recommended stage:
 ```
 
-其中 `Skill invoked` 必须写明：
+`Skill invoked` 必须写：
 
 ```text
 academic-research-suite
@@ -120,55 +115,16 @@ academic-research-suite
 Codex CLI 不得：
 
 - 未显式调用 `academic-research-suite` skill 就开始修改文件；
+- 跳过 open-source scan 就从零实现已有成熟工具；
+- 不记录来源和许可信息就引入外部代码；
+- 把外部通用工具包装成本项目论文创新；
+- 只停留在本地临时代码而不同步到 GitHub；
 - 未经 stage task 要求就实现 PyBullet、Gymnasium、ROS2、RL 或训练脚本；
 - 未通过可视化审查就把 candidate 场景放进 fixed test；
-- 未记录 manifest / seed / config 就生成实验结果；
 - 只报告 success rate 或 collision rate；
 - 隐藏 policy-only 与 policy+shield 的差异；
-- 将 PyBullet、Gazebo、ROS2、PX4、语义分割写成论文主创新；
 - 提交模型权重、大日志、rosbag、大视频或未筛选图片；
 - 为了让测试通过而削弱研究约束。
-
-## 当前推荐下一步
-
-当前仓库已经完成 Stage 0 和 Stage 1。下一次 Codex CLI 应执行 Stage 2：场景可视化流水线。
-
-Stage 2 的目标不是训练，也不是仿真环境，而是针对 `experiments/manifests/candidate_stage1_2026-06-29.yaml` 生成：
-
-- 俯视布局图；
-- 对象意图时间线；
-- 风险区域预览图或占位图；
-- 每个场景的人工审查包；
-- reviewed manifest 的草稿，但不得自动批准。
-
-## 推荐 Codex CLI 终端提示词模板
-
-```text
-Use the academic-research-suite skill.
-
-You are working in the pirl-nav-research repository.
-Current stage: <STAGE_NAME>.
-Task file: <TASK_FILE>.
-
-Before editing files, confirm:
-- Skill invoked: academic-research-suite
-- Stage boundary
-- Allowed scope
-- Forbidden scope
-- Expected review artifacts
-
-You must first read:
-- README.md
-- ROADMAP.md
-- docs/15_codex_cli_academic_research_suite.md
-- <TASK_FILE>
-
-Work only within the current stage.
-Do not implement later-stage functionality.
-Produce minimal code and reviewable artifacts.
-Run the validation commands.
-Summarize allowed scope, forbidden scope checked, known limitations, and next stage.
-```
 
 ## Stage 2 推荐终端提示词
 
@@ -187,7 +143,7 @@ First read:
 - experiments/manifests/candidate_stage1_2026-06-29.yaml
 - experiments/review_checklists/scenario_review.md
 
-Apply the academic-research-suite skill before making changes.
+Before coding, perform an open-source scan for visualization approaches and reusable libraries.
 
 Allowed scope:
 - scenario top-down preview images
@@ -206,21 +162,10 @@ Forbidden scope:
 - no policy rollout
 - no approved fixed test manifest
 
-Before editing files, summarize the stage boundary and expected artifacts.
-
 After editing files, run:
 - python scripts/validate_scenarios.py
 - python -m pytest
 - python -m ruff check .
 
-Final answer must include:
-- Skill invoked
-- Stage
-- Task file
-- Files changed
-- Validation results
-- Review artifacts
-- Known limitations
-- Forbidden scope checked
-- Next recommended stage
+Final answer must include skill invoked, stage, task file, open-source references considered, reuse/adaptation decision, license notes, files changed, validation results, review artifacts, known limitations, forbidden scope checked, GitHub sync status, and next recommended stage.
 ```
