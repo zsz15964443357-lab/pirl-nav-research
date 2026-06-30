@@ -58,6 +58,25 @@ Codex CLI 单任务实现
 
 硬规则：**未通过场景可视化审查，不允许开始大规模训练。**
 
+## 开源优先原则
+
+本项目不要闭门造车，也不要默认从零开始。每个实现阶段在写代码前，都应先调研相关开源项目、论文代码、标准库和成熟工具链。
+
+Codex CLI 每次执行实现类任务前，必须先输出：
+
+```text
+Open-source scan:
+- candidate projects or libraries
+- reusable parts
+- parts that must stay custom for PIRL-Nav
+- license / attribution notes
+- adaptation plan
+```
+
+可以参考、复用或改造已有开源项目，但必须记录来源、版本、许可信息和改动范围。通用基础设施优先参考成熟项目；PIRL-Nav 的创新应集中在 latent motion intent uncertainty、action-conditioned predictive risk、constrained RL 和 shield internalization。
+
+改造后的代码、文档和审查产物必须同步到 GitHub，不能只停留在本地临时代码。
+
 ## Codex CLI skill 调用要求
 
 后续使用 Codex CLI 时，必须在终端任务提示中显式调用 `academic-research-suite` skill。任务 prompt 第一行应写：
@@ -136,3 +155,4 @@ codex_tasks/TASK_00_仓库初始化.md
 4. 不要只报告 success rate 和 collision rate。
 5. 不要隐藏 shield dependence，必须报告 policy-only 与 policy+shield。
 6. 不要提交大规模训练日志、wandb / tensorboard 目录、rosbag、大视频或未筛选图片。
+7. 不要跳过开源调研而从零实现已有成熟工具。
