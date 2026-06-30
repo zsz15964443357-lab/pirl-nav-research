@@ -133,7 +133,7 @@ python scripts/validate_scenarios.py
 
 ## Codex CLI 首次读取文件
 
-第一次让 Codex CLI 只读取以下文件：
+仓库初始化或全新会话首次让 Codex CLI 只读取以下文件：
 
 ```text
 README.md
@@ -146,6 +146,21 @@ codex_tasks/TASK_00_仓库初始化.md
 ```
 
 首次任务只允许建立或维护仓库骨架，不允许实现 PyBullet 环境、强化学习算法、训练脚本或 ROS2 节点。
+
+## Stage 1 审查读取文件
+
+当目标是审查或继续 Stage 1 场景规格工作时，Codex CLI 应先读取：
+
+```text
+docs/ARS_SESSION_CONFIG.md
+docs/13_stage1_scenario_audit_2026-06-29.md
+codex_tasks/TASK_01_scenario_specification.md
+experiments/scenario_specs/README.md
+experiments/manifests/candidate_stage1_2026-06-29.yaml
+scripts/validate_scenarios.py
+```
+
+旧的生成器任务不是当前 Stage 1 的执行入口；在场景规格和可视化审查门控稳定前，不应实现批量场景生成器。
 
 ## 禁止事项
 
