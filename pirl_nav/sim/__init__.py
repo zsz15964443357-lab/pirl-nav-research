@@ -1,5 +1,11 @@
-"""Simulation environment boundary.
+"""Simulation environment helpers for PIRL-Nav."""
 
-Stage 0 intentionally does not implement Gymnasium or PyBullet environments.
-Future stages should place lightweight 2.5D prototypes and PyBullet adapters here.
-"""
+from pirl_nav.sim.env import EnvConfig, IntentRiskEnv
+from pirl_nav.sim.scenario_loader import ReviewedScenario, load_reviewed_scenarios
+
+__all__ = [
+    "EnvConfig",
+    "IntentRiskEnv",
+    "ReviewedScenario",
+    "load_reviewed_scenarios",
+]
