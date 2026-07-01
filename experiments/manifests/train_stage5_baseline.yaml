@@ -1,0 +1,37 @@
+manifest_id: train_stage5_baseline_2026_07_01
+created_at: 2026-07-01
+created_from: train_stage4_draft_2026_07_01
+created_from_commit: f1be673d02df4e680f45fd3d7495d7db459cc88b
+purpose: baseline_train
+status: baseline_development
+not_fixed_test: true
+not_for_final_reporting: true
+metrics_contract: docs/04_metrics_contract.md
+notes:
+  - "Finalized only for Stage 5 baseline development."
+  - "This is not a fixed-test manifest and must not be used for final paper reporting."
+scenario_specs:
+  - path: experiments/scenario_specs/latent_start_easy_0001.yaml
+    family: latent_start
+    difficulty: easy
+    seed: 1001
+    split_role: baseline_train
+    review_status: approved_for_baseline_development
+  - path: experiments/scenario_specs/multi_intent_crossing_medium_0001.yaml
+    family: multi_intent_crossing
+    difficulty: medium
+    seed: 3001
+    split_role: baseline_train
+    review_status: approved_for_baseline_development
+  - path: experiments/scenario_specs/narrow_passage_yield_medium_0001.yaml
+    family: narrow_passage_yield
+    difficulty: medium
+    seed: 4001
+    split_role: baseline_train
+    review_status: approved_for_baseline_development
+  - path: experiments/scenario_specs/crowd_robot_flow_medium_0001.yaml
+    family: crowd_robot_flow
+    difficulty: medium
+    seed: 6001
+    split_role: baseline_train
+    review_status: approved_for_baseline_development

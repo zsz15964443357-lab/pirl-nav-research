@@ -1,0 +1,40 @@
+experiment_id: pirl_nav_stage5_ppo_ttc_proxy_20260701
+stage: 5
+baseline_family: ppo_ttc_proxy
+algorithm: PPO_with_TTC_clearance_proxy
+implementation_source: "Stage 5 dependency-light smoke trainer; formal PPO target references Stable-Baselines3 PPO and CleanRL PPO."
+scenario_manifest: experiments/manifests/train_stage5_baseline.yaml
+validation_manifest: experiments/manifests/validation_stage5_baseline.yaml
+evaluation_config: configs/evaluation/stage4_random_scripted.yaml
+seed_plan:
+  scenario_seed: 2001
+  environment_seed: 52001
+  policy_init_seed: 62001
+  training_seed: 72001
+  evaluation_seed: 82001
+total_timesteps: 20000
+num_envs: 1
+rollout_steps: 128
+learning_rate: 0.0003
+gamma: 0.99
+gae_lambda: 0.95
+clip_range: 0.2
+entropy_coef: 0.0
+value_coef: 0.5
+max_grad_norm: 0.5
+cost_limit:
+checkpoint_policy:
+  enabled: false
+  save_every_timesteps: 0
+  output_dir: artifacts/stage5/checkpoints/ppo_ttc_proxy
+  commit_to_git: false
+artifact_policy:
+  small_json_summaries_committed: true
+  model_weights_committed: false
+  checkpoints_committed: false
+  large_logs_committed: false
+  videos_committed: false
+  external_artifact_root: artifacts/stage5
+notes:
+  - "Uses geometric TTC/clearance proxy only; no latent intent predictor."
+  - "Smoke mode validates config, seed, and evaluation plumbing."

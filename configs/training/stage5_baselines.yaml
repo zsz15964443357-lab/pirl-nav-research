@@ -1,0 +1,17 @@
+experiment_id: pirl_nav_stage5_baselines_20260701
+stage: 5
+implementation_mode: dependency_light_smoke
+baseline_configs:
+  - configs/training/baselines/vanilla_ppo.yaml
+  - configs/training/baselines/ppo_ttc_proxy.yaml
+  - configs/training/baselines/ppo_semantic_risk_proxy.yaml
+  - configs/training/baselines/ppo_lagrangian_no_intent.yaml
+smoke:
+  max_steps_per_episode: 24
+outputs:
+  training_summary: experiments/review_artifacts/stage5/baseline_training_smoke_summary.json
+  validation_episode_records: experiments/review_artifacts/stage5/baseline_validation_episode_records.jsonl
+  validation_summary: experiments/review_artifacts/stage5/baseline_validation_summary.json
+notes:
+  - "Stage 5 uses dependency-light smoke training unless an optional external PPO backend is installed later."
+  - "Smoke results validate reproducibility plumbing only and are not paper baseline results."

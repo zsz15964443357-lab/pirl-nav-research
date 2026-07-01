@@ -132,6 +132,12 @@ def _run_episode(
     goal = as_point(spec["ego"]["goal"])
     straight_line_distance = distance(start, goal)
     collision = bool(info["collision"])
+    goal_reached = bool(terminated and not truncated and not collision)
+    termination_reason = _termination_reason(
+        goal_reached=goal_reached,
+        collision=collision,
+        truncated=truncated,
+    )
     success = success_from_done(
         terminated=terminated,
         truncated=truncated,
@@ -176,7 +182,19 @@ def _run_episode(
             "Stage 4 smoke evaluation only; policy is not learned; risk exposure is "
             "a geometric proxy, not final action-conditioned predictive risk."
         ),
+        goal_reached=goal_reached,
+        termination_reason=termination_reason,
     )
+
+
+def _termination_reason(*, goal_reached: bool, collision: bool, truncated: bool) -> str:
+    if collision:
+        return "collision"
+    if goal_reached:
+        return "goal_reached"
+    if truncated:
+        return "timeout"
+    return "unknown"
 
 
 def _write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:

@@ -1,0 +1,40 @@
+experiment_id: pirl_nav_stage5_vanilla_ppo_20260701
+stage: 5
+baseline_family: vanilla_ppo
+algorithm: PPO
+implementation_source: "Stage 5 dependency-light smoke trainer; formal PPO target references Stable-Baselines3 PPO and CleanRL PPO."
+scenario_manifest: experiments/manifests/train_stage5_baseline.yaml
+validation_manifest: experiments/manifests/validation_stage5_baseline.yaml
+evaluation_config: configs/evaluation/stage4_random_scripted.yaml
+seed_plan:
+  scenario_seed: 1001
+  environment_seed: 51001
+  policy_init_seed: 61001
+  training_seed: 71001
+  evaluation_seed: 81001
+total_timesteps: 20000
+num_envs: 1
+rollout_steps: 128
+learning_rate: 0.0003
+gamma: 0.99
+gae_lambda: 0.95
+clip_range: 0.2
+entropy_coef: 0.0
+value_coef: 0.5
+max_grad_norm: 0.5
+cost_limit:
+checkpoint_policy:
+  enabled: false
+  save_every_timesteps: 0
+  output_dir: artifacts/stage5/checkpoints/vanilla_ppo
+  commit_to_git: false
+artifact_policy:
+  small_json_summaries_committed: true
+  model_weights_committed: false
+  checkpoints_committed: false
+  large_logs_committed: false
+  videos_committed: false
+  external_artifact_root: artifacts/stage5
+notes:
+  - "No explicit TTC, semantic risk, intent predictor, or shield internalization."
+  - "Smoke mode does not write model weights or checkpoints."
