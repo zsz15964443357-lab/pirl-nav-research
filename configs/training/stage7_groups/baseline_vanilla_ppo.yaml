@@ -1,0 +1,7 @@
+group_id: vanilla_ppo
+display_name: "Vanilla PPO baseline"
+group_type: baseline
+source_family: vanilla_ppo
+source_config: configs/training/baselines/vanilla_ppo.yaml
+policy_modes: [policy_only, policy_plus_shield]
+paper_claim_allowed: false

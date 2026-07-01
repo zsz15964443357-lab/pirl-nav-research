@@ -1,0 +1,7 @@
+group_id: ppo_semantic_risk_proxy
+display_name: "PPO semantic risk proxy baseline"
+group_type: baseline
+source_family: ppo_semantic_risk_proxy
+source_config: configs/training/baselines/ppo_semantic_risk_proxy.yaml
+policy_modes: [policy_only, policy_plus_shield]
+paper_claim_allowed: false

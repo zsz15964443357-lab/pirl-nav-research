@@ -1,0 +1,7 @@
+group_id: ppo_ttc_proxy
+display_name: "PPO TTC proxy baseline"
+group_type: baseline
+source_family: ppo_ttc_proxy
+source_config: configs/training/baselines/ppo_ttc_proxy.yaml
+policy_modes: [policy_only, policy_plus_shield]
+paper_claim_allowed: false

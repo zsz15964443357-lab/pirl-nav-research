@@ -1,0 +1,7 @@
+group_id: no_shield_internalization
+display_name: "Ablation without shield internalization"
+group_type: method_ablation
+source_family: no_shield_internalization
+source_config: configs/method/ablations/no_shield_internalization.yaml
+policy_modes: [policy_only, policy_plus_shield]
+paper_claim_allowed: false

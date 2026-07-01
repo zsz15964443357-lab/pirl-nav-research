@@ -1,0 +1,7 @@
+group_id: no_action_conditioning
+display_name: "Ablation without action-conditioned risk"
+group_type: method_ablation
+source_family: no_action_conditioning
+source_config: configs/method/ablations/no_action_conditioning.yaml
+policy_modes: [policy_only, policy_plus_shield]
+paper_claim_allowed: false

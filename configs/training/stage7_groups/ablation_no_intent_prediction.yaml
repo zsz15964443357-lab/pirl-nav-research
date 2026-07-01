@@ -1,0 +1,7 @@
+group_id: no_intent_prediction
+display_name: "Ablation without intent prediction"
+group_type: method_ablation
+source_family: no_intent_prediction
+source_config: configs/method/ablations/no_intent_prediction.yaml
+policy_modes: [policy_only, policy_plus_shield]
+paper_claim_allowed: false

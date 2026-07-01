@@ -1,0 +1,7 @@
+group_id: ppo_lagrangian_no_intent
+display_name: "PPO-Lagrangian no-intent baseline"
+group_type: baseline
+source_family: ppo_lagrangian_no_intent
+source_config: configs/training/baselines/ppo_lagrangian_no_intent.yaml
+policy_modes: [policy_only, policy_plus_shield]
+paper_claim_allowed: false

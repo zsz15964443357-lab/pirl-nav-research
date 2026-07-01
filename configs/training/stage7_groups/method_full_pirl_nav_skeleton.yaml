@@ -1,0 +1,7 @@
+group_id: full_pirl_nav_skeleton
+display_name: "PIRL-Nav full skeleton"
+group_type: method_skeleton
+source_family: full_pirl_nav_skeleton
+source_config: configs/method/ablations/full_pirl_nav_skeleton.yaml
+policy_modes: [policy_only, policy_plus_shield]
+paper_claim_allowed: false

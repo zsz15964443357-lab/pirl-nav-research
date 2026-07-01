@@ -1,0 +1,45 @@
+experiment_id: pirl_nav_stage7_reduced_formal_20260701
+stage: 7
+scenario_manifest: experiments/manifests/train_stage5_baseline.yaml
+validation_manifest: experiments/manifests/validation_stage5_baseline.yaml
+training_groups:
+  - configs/training/stage7_groups/baseline_vanilla_ppo.yaml
+  - configs/training/stage7_groups/baseline_ttc_proxy.yaml
+  - configs/training/stage7_groups/baseline_semantic_risk_proxy.yaml
+  - configs/training/stage7_groups/baseline_lagrangian_no_intent.yaml
+  - configs/training/stage7_groups/method_full_pirl_nav_skeleton.yaml
+  - configs/training/stage7_groups/ablation_no_intent_prediction.yaml
+  - configs/training/stage7_groups/ablation_no_action_conditioning.yaml
+  - configs/training/stage7_groups/ablation_no_risk_constraint.yaml
+  - configs/training/stage7_groups/ablation_no_shield_internalization.yaml
+seeds: [0, 1, 2]
+total_timesteps: 36
+evaluation_cadence: 12
+visualization_cadence: 12
+trainer_backend: dependency_light_reduced_formal
+quick_debug: true
+reduced_timesteps_for_review: true
+checkpoint_policy:
+  enabled: false
+  output_dir: artifacts/stage7/checkpoints
+  commit_to_git: false
+artifact_policy:
+  small_json_summaries_committed: true
+  small_svg_figures_committed: true
+  model_weights_committed: false
+  checkpoints_committed: false
+  large_logs_committed: false
+  videos_or_gifs_committed: false
+reduced_review_run:
+  max_steps_per_episode: 24
+outputs:
+  training_metrics: experiments/review_artifacts/stage7/training_metrics.jsonl
+  validation_episode_records: experiments/review_artifacts/stage7/validation_episode_records.jsonl
+  validation_summary: experiments/review_artifacts/stage7/validation_summary.json
+  comparison_summary: experiments/review_artifacts/stage7/comparison_summary.json
+  visual_index: experiments/review_artifacts/stage7/visual_index.md
+  figures_dir: experiments/review_artifacts/stage7/figures
+notes:
+  - "Reduced formal training review run, not final fixed-test evaluation."
+  - "No model weights, checkpoints, videos, GIFs, TensorBoard, or wandb outputs are committed."
+  - "Old Stage 4/5/6 review artifacts must remain unchanged."

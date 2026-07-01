@@ -1,0 +1,7 @@
+group_id: no_risk_constraint
+display_name: "Ablation without risk constraint"
+group_type: method_ablation
+source_family: no_risk_constraint
+source_config: configs/method/ablations/no_risk_constraint.yaml
+policy_modes: [policy_only, policy_plus_shield]
+paper_claim_allowed: false
