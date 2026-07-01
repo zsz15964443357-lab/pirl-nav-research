@@ -1,0 +1,189 @@
+{
+  "baseline_vs_method_skeleton": {
+    "baseline_risk_exposure_mean": 0.0,
+    "interpretation": "Diagnostic only. Differences come from reduced deterministic review run and cannot support final paper claims.",
+    "method_skeleton_risk_exposure_mean": 0.0
+  },
+  "commit": "654c6c3d430176957adbcd00ced3f959561f3fb8",
+  "experiment_id": "pirl_nav_stage7_reduced_formal_20260701",
+  "fixed_test_used": false,
+  "known_limitations": [
+    "Reduced formal review run on lightweight 2.5D gate.",
+    "No fixed-test manifest.",
+    "No model weights or checkpoints committed.",
+    "Stage 7 metrics are debugging artifacts, not final paper results."
+  ],
+  "paper_claim_allowed": false,
+  "per_method": {
+    "full_pirl_nav_skeleton": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.13077668918918905,
+      "episodes": 12.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    },
+    "no_action_conditioning": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.1285452088452088,
+      "episodes": 12.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    },
+    "no_intent_prediction": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.1285452088452088,
+      "episodes": 12.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    },
+    "no_risk_constraint": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.13970261056511044,
+      "episodes": 12.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    },
+    "no_shield_internalization": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.1285452088452088,
+      "episodes": 12.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    },
+    "ppo_lagrangian_no_intent": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.12408224815724807,
+      "episodes": 12.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    },
+    "ppo_semantic_risk_proxy": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.1285452088452088,
+      "episodes": 12.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    },
+    "ppo_ttc_proxy": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.13300816953316946,
+      "episodes": 12.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    },
+    "vanilla_ppo": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.14193409090909084,
+      "episodes": 12.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    }
+  },
+  "per_scenario_family": {
+    "occlusion_emergence": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.14288648648648636,
+      "episodes": 54.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    },
+    "vehicle_forklift_launch": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.12015454545454543,
+      "episodes": 54.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    }
+  },
+  "per_seed": {
+    "0": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.1315205159705159,
+      "episodes": 36.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    },
+    "1": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.1315205159705159,
+      "episodes": 36.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    },
+    "2": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.1315205159705159,
+      "episodes": 36.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    }
+  },
+  "policy_only_vs_policy_plus_shield": {
+    "policy_only": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.13480098280098285,
+      "episodes": 54.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    },
+    "policy_plus_shield": {
+      "collision_rate": 0.0,
+      "detour_ratio_mean": 0.12824004914004897,
+      "episodes": 54.0,
+      "jerk_proxy_mean": 0.0,
+      "near_miss_count_mean": 0.0,
+      "risk_exposure_mean": 0.0,
+      "shield_intervention_rate_mean": 0.0,
+      "success_rate": 0.0
+    }
+  },
+  "schema": "pirl_nav_stage7_comparison_summary_v1",
+  "stage": 7,
+  "training_run_type": "reduced_formal_training_review_run",
+  "validation_manifest": "experiments/manifests/validation_stage5_baseline.yaml"
+}
