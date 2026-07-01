@@ -22,10 +22,17 @@ Stage 3 当前提供：
 scripts/rollout_random_policy.py # 对 reviewed Stage 2 场景执行随机/脚本 smoke rollout
 ```
 
+Stage 4 当前提供：
+
+```text
+scripts/evaluate_stage4.py       # 生成 random/scripted episode records 与 summary
+```
+
 ## 后续允许脚本类型
 
 ```text
 scripts/
+  evaluate_stage4.py         # Stage 4：评估管线和 baseline readiness smoke evaluation
   preview_scenarios.py       # Stage 2：生成场景可视化审查包
   rollout_random_policy.py   # Stage 3：环境 reset / step / rollout smoke test
   summarize_metrics.py       # Stage 4：聚合固定测试集指标

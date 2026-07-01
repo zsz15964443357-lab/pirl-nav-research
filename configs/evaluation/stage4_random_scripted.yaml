@@ -1,0 +1,15 @@
+experiment_id: pirl_nav_stage4_random_scripted_20260701
+stage: 4
+scenario_manifest: experiments/manifests/reviewed_stage2_2026-06-30.yaml
+run_mode: policy_only
+policy_types:
+  - random
+  - scripted
+max_steps: 120
+env_dt: 0.2
+outputs:
+  episode_records: experiments/review_artifacts/stage4/random_scripted_episode_records.jsonl
+  summary: experiments/review_artifacts/stage4/random_scripted_summary.json
+notes:
+  - "Random and scripted policies are not learned baselines."
+  - "risk_exposure is a geometric proxy, not final action-conditioned predictive risk."
