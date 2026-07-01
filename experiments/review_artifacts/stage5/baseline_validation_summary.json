@@ -5,7 +5,7 @@
     "ppo_semantic_risk_proxy",
     "ppo_lagrangian_no_intent"
   ],
-  "commit": "2ee33eabd08640f6a0bdcd13b26d7cb3c1e0f47e",
+  "commit": "583577aa09fb34e39c9216451cc9ffb655ea3428",
   "experiment_id": "pirl_nav_stage5_baselines_20260701",
   "fixed_test_used": false,
   "goal_reached_and_termination_reason_present": true,
