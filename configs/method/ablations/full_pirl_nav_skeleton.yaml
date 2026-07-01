@@ -1,0 +1,13 @@
+name: full_pirl_nav_skeleton
+enabled_components:
+  - heuristic_intent_prediction_placeholder
+  - action_conditioned_proxy_risk
+  - constrained_objective_skeleton
+  - shield_internalization_placeholder
+disabled_components: []
+risk_mode: action_conditioned_proxy
+constraint_mode: lagrangian_placeholder
+shield_mode: interface_with_internalization_placeholder
+paper_claim_allowed: false
+notes:
+  - "Full skeleton for interface validation only; not final PIRL-Nav."
