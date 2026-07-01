@@ -10,7 +10,7 @@
 
 - Repository sync status: latest `origin/main` fetched and local `main` fast-forwarded before branching.
 - Base branch and commit: `main@f1be673d02df4e680f45fd3d7495d7db459cc88b`
-- Working branch: `codex/stage4-evaluation-pipeline-20260701`
+- Working branch and commit: `codex/stage4-evaluation-pipeline-20260701@530e14dfa1e9ca67fbef9002f8102cafda1d7503`
 
 ## Open-Source Scan
 
@@ -146,6 +146,7 @@ Before Stage 5 starts, the project still needs:
 - checkpoint retention policy that avoids committing weights
 - evaluation cadence during training
 - failure-case retention policy
+- explicit `goal_reached` and `termination_reason` fields before learned baseline reporting
 - policy-only and policy+shield evaluation entry points
 - finalized train / validation manifests with clear separation from future fixed test
 
