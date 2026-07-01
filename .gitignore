@@ -60,5 +60,9 @@ install/
 *.gif
 *.webm
 
+# Stage 7 user-approved visual diagnostics.
+!experiments/review_artifacts/stage7/gifs/
+!experiments/review_artifacts/stage7/gifs/*.gif
+
 # Curated paper/review figures may be committed under docs/figures/ after manual review.
 !docs/figures/.gitkeep

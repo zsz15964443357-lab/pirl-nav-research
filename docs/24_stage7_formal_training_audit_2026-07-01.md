@@ -79,6 +79,14 @@ Stage 7 artifacts are stored only under `experiments/review_artifacts/stage7/`:
 - `figures/shield_intervention_curves.svg`
 - `figures/aggregate_metric_bars.svg`
 - four representative rollout SVGs for `vanilla_ppo` and `full_pirl_nav_skeleton`, each in `policy_only` and `policy_plus_shield` mode
+- `gifs/index.md`
+- user-approved rollout comparison GIFs and poster PNGs under `gifs/` for:
+  - `latent_start_easy_0001`
+  - `multi_intent_crossing_medium_0001`
+  - `narrow_passage_yield_medium_0001`
+  - `crowd_robot_flow_medium_0001`
+  - `occlusion_emergence_medium_0001`
+  - `vehicle_forklift_launch_hard_0001`
 
 ## Evaluation Compatibility
 
@@ -129,7 +137,8 @@ All checks passed!
 ## Forbidden Scope Checked
 
 - No fixed-test manifest was created.
-- No model weights, checkpoints, TensorBoard event directories, wandb directories, large logs, videos, GIFs, or large rollout dumps were added.
+- No model weights, checkpoints, TensorBoard event directories, wandb directories, large logs, videos, or large rollout dumps were added.
+- GIFs were added only after explicit user approval as necessary Stage 7 visual diagnostics; they remain review artifacts and not paper results.
 - No Stage 4 / Stage 5 / Stage 6 review artifacts were recommitted.
 - No final paper claim is made.
 - No claim that PIRL-Nav finally outperforms baselines is made.
@@ -143,7 +152,7 @@ All checks passed!
 - Stage 7 remains a reduced formal review run, not full PPO training.
 - The trainer is dependency-light and deterministic for reviewability.
 - PIRL-Nav method groups remain skeleton / ablation groups, not the final full method.
-- The SVG figures are debug / review artifacts, not publication figures.
+- The SVG figures and GIFs are debug / review artifacts, not publication figures.
 - Results are limited to baseline-development train / validation manifests and cannot support final paper claims.
 
 ## Review File Hygiene
