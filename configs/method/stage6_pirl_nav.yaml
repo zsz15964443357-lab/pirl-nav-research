@@ -1,0 +1,45 @@
+experiment_id: pirl_nav_stage6_method_20260701
+stage: 6
+scenario_manifest: experiments/manifests/train_stage5_baseline.yaml
+validation_manifest: experiments/manifests/validation_stage5_baseline.yaml
+method_configs:
+  - configs/method/ablations/full_pirl_nav_skeleton.yaml
+  - configs/method/ablations/no_intent_prediction.yaml
+  - configs/method/ablations/no_action_conditioning.yaml
+  - configs/method/ablations/no_risk_constraint.yaml
+  - configs/method/ablations/no_shield_internalization.yaml
+run_modes:
+  - policy_only
+  - policy_plus_shield
+seed_plan:
+  scenario_seed: 6001
+  environment_seed: 56001
+  policy_init_seed: 66001
+  training_seed: 76001
+  evaluation_seed: 86001
+intent_predictor:
+  implementation: heuristic_placeholder
+  history_window: 4
+  not_trained_gru: true
+risk_model:
+  implementation: geometric_intent_probability_proxy
+  prediction_horizon: 3.0
+  risk_is_proxy: true
+constrained_objective:
+  cost_limit: 0.3
+  lagrange_multiplier_placeholder: 0.5
+  not_formal_ppo_lagrangian: true
+shield:
+  risk_threshold: 0.45
+  internalization_is_placeholder: true
+smoke:
+  max_steps_per_episode: 24
+outputs:
+  method_smoke_summary: experiments/review_artifacts/stage6/method_smoke_summary.json
+  validation_episode_records: experiments/review_artifacts/stage6/method_validation_episode_records.jsonl
+  validation_summary: experiments/review_artifacts/stage6/method_validation_summary.json
+notes:
+  - "Stage 6 establishes method and ablation skeletons only."
+  - "Heuristic intent predictor is not a trained GRU model."
+  - "Action-conditioned risk is a proxy, not final learned predictive risk."
+  - "No fixed-test manifest is used."

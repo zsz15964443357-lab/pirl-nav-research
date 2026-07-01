@@ -1,0 +1,14 @@
+name: no_risk_constraint
+enabled_components:
+  - heuristic_intent_prediction_placeholder
+  - action_conditioned_proxy_risk
+  - unconstrained_objective
+  - shield_internalization_placeholder
+disabled_components:
+  - constrained_objective_skeleton
+risk_mode: action_conditioned_proxy
+constraint_mode: disabled
+shield_mode: interface_with_internalization_placeholder
+paper_claim_allowed: false
+notes:
+  - "Ablation keeps proxy risk observation but disables constrained objective penalty."

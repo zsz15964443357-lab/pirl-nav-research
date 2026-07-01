@@ -1,0 +1,14 @@
+name: no_action_conditioning
+enabled_components:
+  - heuristic_intent_prediction_placeholder
+  - state_only_proxy_risk
+  - constrained_objective_skeleton
+  - shield_internalization_placeholder
+disabled_components:
+  - action_conditioned_proxy_risk
+risk_mode: state_only_proxy
+constraint_mode: lagrangian_placeholder
+shield_mode: interface_with_internalization_placeholder
+paper_claim_allowed: false
+notes:
+  - "Ablation scores risk without differentiating candidate actions."

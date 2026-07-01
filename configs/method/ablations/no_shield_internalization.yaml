@@ -1,0 +1,14 @@
+name: no_shield_internalization
+enabled_components:
+  - heuristic_intent_prediction_placeholder
+  - action_conditioned_proxy_risk
+  - constrained_objective_skeleton
+  - shield_interface_only
+disabled_components:
+  - shield_internalization_placeholder
+risk_mode: action_conditioned_proxy
+constraint_mode: lagrangian_placeholder
+shield_mode: interface_only
+paper_claim_allowed: false
+notes:
+  - "Ablation exposes shield action but omits student target / internalization loss placeholder."

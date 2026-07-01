@@ -1,0 +1,14 @@
+name: no_intent_prediction
+enabled_components:
+  - uniform_intent_placeholder
+  - action_conditioned_proxy_risk
+  - constrained_objective_skeleton
+  - shield_internalization_placeholder
+disabled_components:
+  - heuristic_intent_prediction_placeholder
+risk_mode: action_conditioned_proxy_uniform_intent
+constraint_mode: lagrangian_placeholder
+shield_mode: interface_with_internalization_placeholder
+paper_claim_allowed: false
+notes:
+  - "Ablation disables scenario prior intent probabilities and uses uniform candidates."
