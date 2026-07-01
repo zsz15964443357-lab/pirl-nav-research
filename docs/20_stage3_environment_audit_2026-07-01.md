@@ -10,7 +10,7 @@
 
 - Repository sync status: latest `origin/main` fetched and local `main` fast-forward checked before branching.
 - Base branch and commit: `main@cec5505207d54382755726e7e6e47d9a96973e44`
-- Working branch: `codex/stage3-environment-gate-20260701`
+- Working branch and commit: `codex/stage3-environment-gate-20260701@71a7cd963b0227771266f4d9ff8cbb1052f88f4c`
 
 ## Open-Source Scan
 
@@ -33,6 +33,7 @@ References considered:
 
 The Stage 3 gate adds:
 
+- lightweight 2.5D Gymnasium-style environment gate, not a full PyBullet physics backend
 - reviewed manifest loader for `experiments/manifests/reviewed_stage2_2026-06-30.yaml`
 - Gymnasium-style `IntentRiskEnv.reset()`, `step()`, `render()`
 - world-frame 2D velocity action command with speed and acceleration clipping
@@ -138,7 +139,7 @@ All checks passed!
 
 ## Known Limitations
 
-- This is a lightweight 2.5D environment gate, not yet a full PyBullet physics backend.
+- This is a lightweight 2.5D Gymnasium-style gate. It is not a complete PyBullet physics backend and does not yet validate rigid-body dynamics, contact response, UAV attitude dynamics, or PyBullet-native collision geometry.
 - Dynamic object behavior chooses one candidate intent per reset and follows a simple straight-line target motion after trigger time.
 - `risk_exposure_increment` is a geometric near-miss proxy placeholder, not the final action-conditioned predictive risk metric.
 - `shield_intervention` is a placeholder until the Stage 4 / Stage 6 safety supervisor work.
