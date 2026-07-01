@@ -9,7 +9,7 @@
 ## Repository Sync Status
 
 - Repository sync status: latest `origin/main` fetched and local `main` fast-forwarded before branching.
-- Base branch and commit: `main@c501ce270fe66945feb5ad6497da49a6d288e954`
+- Base branch and commit: `main@c501ce21763491380f38f05b0598c9b31bde3ad5`
 - Working branch source commit: `codex/stage5-baseline-training-20260701@2ee33eabd08640f6a0bdcd13b26d7cb3c1e0f47e`
 - Review artifacts generated from commit: `2ee33eabd08640f6a0bdcd13b26d7cb3c1e0f47e`
 
