@@ -16,11 +16,18 @@ Stage 2 当前提供：
 scripts/preview_scenarios.py    # 生成 HTML/SVG/JSON 场景可视化审查包
 ```
 
+Stage 3 当前提供：
+
+```text
+scripts/rollout_random_policy.py # 对 reviewed Stage 2 场景执行随机/脚本 smoke rollout
+```
+
 ## 后续允许脚本类型
 
 ```text
 scripts/
   preview_scenarios.py       # Stage 2：生成场景可视化审查包
+  rollout_random_policy.py   # Stage 3：环境 reset / step / rollout smoke test
   summarize_metrics.py       # Stage 4：聚合固定测试集指标
   validate_scenarios.py      # Stage 1/2：检查 scenario specs 与 candidate manifest
 ```

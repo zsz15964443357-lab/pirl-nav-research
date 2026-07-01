@@ -1,0 +1,95 @@
+[
+  {
+    "scenario_id": "latent_start_easy_0001",
+    "family": "latent_start",
+    "seed": 1001,
+    "mode": "scripted",
+    "steps_executed": 8,
+    "terminated": false,
+    "truncated": false,
+    "collision": false,
+    "near_miss": false,
+    "min_clearance": 5.875550501777149,
+    "active_intents": {
+      "pedestrian_0": "cross"
+    }
+  },
+  {
+    "scenario_id": "occlusion_emergence_medium_0001",
+    "family": "occlusion_emergence",
+    "seed": 2001,
+    "mode": "scripted",
+    "steps_executed": 8,
+    "terminated": false,
+    "truncated": false,
+    "collision": false,
+    "near_miss": false,
+    "min_clearance": 6.218,
+    "active_intents": {
+      "cart_0": "emerge_cross"
+    }
+  },
+  {
+    "scenario_id": "multi_intent_crossing_medium_0001",
+    "family": "multi_intent_crossing",
+    "seed": 3001,
+    "mode": "scripted",
+    "steps_executed": 8,
+    "terminated": false,
+    "truncated": false,
+    "collision": false,
+    "near_miss": false,
+    "min_clearance": 7.454810112800477,
+    "active_intents": {
+      "pedestrian_0": "continue_parallel",
+      "mobile_robot_0": "cross_right_to_left"
+    }
+  },
+  {
+    "scenario_id": "narrow_passage_yield_medium_0001",
+    "family": "narrow_passage_yield",
+    "seed": 4001,
+    "mode": "scripted",
+    "steps_executed": 8,
+    "terminated": false,
+    "truncated": false,
+    "collision": false,
+    "near_miss": false,
+    "min_clearance": 2.6153998010564514,
+    "active_intents": {
+      "mobile_robot_0": "yield_to_side"
+    }
+  },
+  {
+    "scenario_id": "vehicle_forklift_launch_hard_0001",
+    "family": "vehicle_forklift_launch",
+    "seed": 5001,
+    "mode": "scripted",
+    "steps_executed": 8,
+    "terminated": false,
+    "truncated": false,
+    "collision": false,
+    "near_miss": false,
+    "min_clearance": 4.347173764773597,
+    "active_intents": {
+      "forklift_0": "launch_forward"
+    }
+  },
+  {
+    "scenario_id": "crowd_robot_flow_medium_0001",
+    "family": "crowd_robot_flow",
+    "seed": 6001,
+    "mode": "scripted",
+    "steps_executed": 8,
+    "terminated": false,
+    "truncated": false,
+    "collision": false,
+    "near_miss": false,
+    "min_clearance": 5.196241338448382,
+    "active_intents": {
+      "pedestrian_0": "cut_across_flow",
+      "mobile_robot_0": "local_goal_switch",
+      "pedestrian_1": "restart_cross"
+    }
+  }
+]
