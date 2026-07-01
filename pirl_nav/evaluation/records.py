@@ -35,6 +35,8 @@ class EpisodeRecord:
     shield_intervention_count: int
     shield_intervention_rate: float
     notes: str
+    goal_reached: bool = False
+    termination_reason: str = "unknown"
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

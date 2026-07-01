@@ -1,0 +1,40 @@
+experiment_id: pirl_nav_stage5_ppo_lagrangian_no_intent_20260701
+stage: 5
+baseline_family: ppo_lagrangian_no_intent
+algorithm: PPO_Lagrangian_no_intent_skeleton
+implementation_source: "Stage 5 dependency-light smoke trainer with geometric cost proxy; SafePO Lagrangian conventions considered."
+scenario_manifest: experiments/manifests/train_stage5_baseline.yaml
+validation_manifest: experiments/manifests/validation_stage5_baseline.yaml
+evaluation_config: configs/evaluation/stage4_random_scripted.yaml
+seed_plan:
+  scenario_seed: 4001
+  environment_seed: 54001
+  policy_init_seed: 64001
+  training_seed: 74001
+  evaluation_seed: 84001
+total_timesteps: 20000
+num_envs: 1
+rollout_steps: 128
+learning_rate: 0.0003
+gamma: 0.99
+gae_lambda: 0.95
+clip_range: 0.2
+entropy_coef: 0.0
+value_coef: 0.5
+max_grad_norm: 0.5
+cost_limit: 0.2
+checkpoint_policy:
+  enabled: false
+  save_every_timesteps: 0
+  output_dir: artifacts/stage5/checkpoints/ppo_lagrangian_no_intent
+  commit_to_git: false
+artifact_policy:
+  small_json_summaries_committed: true
+  model_weights_committed: false
+  checkpoints_committed: false
+  large_logs_committed: false
+  videos_committed: false
+  external_artifact_root: artifacts/stage5
+notes:
+  - "Constrained RL skeleton uses geometric proxy cost only."
+  - "No GRU intent predictor, action-conditioned predictive risk, or shield internalization."
